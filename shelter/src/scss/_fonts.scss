@@ -1,0 +1,19 @@
+@font-face {
+  @include fonts('Georgia', 'Georgia', '400', 'normal')
+}
+
+@font-face {
+  @include fonts('Georgia', 'Georgia-Bold', '700', 'normal')
+}
+
+@font-face {
+  @include fonts('Georgia', 'Georgia-Italic', '400', 'italic')
+}
+
+@font-face {
+  @include fonts('Arial', 'ArialMT', '400', 'normal')
+}
+
+@font-face {
+  @include fonts('Arial', 'Arial-ItalicMT', '400', 'italic')
+}

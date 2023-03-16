@@ -1,0 +1,25 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 10px;  
+
+  &__title {
+    color: $color-primary;
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  &__subtitle {
+    font-family: Arial, sans-serif;
+    color: $color-light;
+    font-size: 13px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    padding-left: 2px;
+
+    @include tablet650 {
+      padding-left: 4px;
+    }
+  }
+}

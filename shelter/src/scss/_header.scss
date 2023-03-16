@@ -1,0 +1,23 @@
+.header {  
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+
+    @include mobile550{
+      gap: 40px;
+    }
+  }
+    
+}
+
+.header-nav {
+  margin-top: -5px;
+  text-align: right;
+}
+
+.header__btn {
+  margin-right: 43px;
+}

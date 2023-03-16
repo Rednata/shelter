@@ -1,0 +1,38 @@
+$color-primary: #F1CDB3;
+$color-light: #ffffff;
+$color-dark-s: #CDCDCD;
+
+@mixin fonts($name, $file-name, $width, $style) {
+  font: {
+    family: $name;        
+    style: $style
+  }
+  width: $width;
+  src: local($name),
+  url('../fonts/#{$file-name}.woff2') format('woff2'),
+  url('../fonts/#{$file-name}.woff') format('woff');
+}
+
+@mixin tablet850 {
+  @media(max-width: 850px) {
+    @content;
+  }
+}
+
+@mixin tablet650 {
+  @media(max-width: 650px) {
+    @content;
+  }
+}
+
+@mixin mobile550 {
+  @media(max-width: 550px) {
+    @content;
+  }
+}
+
+@mixin mobile480 {
+  @media(max-width: 480px) {
+    @content;
+  }
+}

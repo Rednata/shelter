@@ -1,0 +1,16 @@
+.nav {
+
+  @include mobile550 {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;    
+    gap: 35px;
+    font-family: Arial, sans-serif;
+    color: $color-dark-s;
+    font-size: 15px;    
+  }
+
+}
