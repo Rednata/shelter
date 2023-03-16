@@ -7,8 +7,8 @@
   <link rel="preload" href="fonts/Georgia.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="fonts/Georgia-Bold.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="fonts/Georgia-Italic.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="fonts/ArialMT.woff2" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="fonts/ArialNarrow.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="fonts/ArialNarrow-Italic.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="stylesheet" href="style/index.css">
   <title>Document</title>
 </head>
@@ -65,17 +65,22 @@
       <div class="not-only__container container">
         <div class="not-only__content">
           <h1 class="not-only__title">
-            Not only people need a house
+            Not only people need&nbsp;a house
           </h1>
           <div class="not-only__text">
             We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!
           </div>
-          <button class="not-only__button">Make a friend</button>
+          <button class="not-only__button button">Make a friend</button>
   
         </div>
   
-        <div class="not-only__img">
-  
+        <div class="not-only__img-box">
+          <picture>            
+            <source srcset="img/start-screen-puppy320.png" media="(max-width:550px)">
+            <source srcset="img/start-screen-puppy768.png" media="(max-width:1100px)">
+            <img class="not-only__img" src="img/start-screen-puppy.png" alt="">
+          </picture>
+          
         </div>
       </div>
       

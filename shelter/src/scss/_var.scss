@@ -1,6 +1,7 @@
 $color-primary: #F1CDB3;
 $color-light: #ffffff;
 $color-dark-s: #CDCDCD;
+$color-dark-3xl: #292929;
 
 @mixin fonts($name, $file-name, $width, $style) {
   font: {
@@ -11,6 +12,12 @@ $color-dark-s: #CDCDCD;
   src: local($name),
   url('../fonts/#{$file-name}.woff2') format('woff2'),
   url('../fonts/#{$file-name}.woff') format('woff');
+}
+
+@mixin desktop1100 {
+  @media(max-width: 1100px) {
+    @content;
+  }
 }
 
 @mixin tablet850 {
@@ -33,6 +40,12 @@ $color-dark-s: #CDCDCD;
 
 @mixin mobile480 {
   @media(max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin mobile400 {
+  @media(max-width: 400px) {
     @content;
   }
 }
