@@ -10,6 +10,7 @@ body {
   max-width: 1280px;
   padding: 0 40px;
   margin: 0 auto;
+  // border: 1px solid red;
 
   @include tablet850 {
       padding: 0 30px;
@@ -28,6 +29,12 @@ body {
   @include tablet850 {
     padding-top: 30px;
   }
+}
 
+.page-section {
+  margin-bottom: 80px;
 
+  @include mobile400 {
+    margin-bottom: 42px;
+  }
 }

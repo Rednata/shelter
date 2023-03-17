@@ -11,9 +11,9 @@
 }
 
 @font-face {
-  @include fonts('Arial', 'ArialNarrow', '400', 'normal')
+  @include fonts('Arial', 'ArialMT', '400', 'normal')
 }
 
 @font-face {
-  @include fonts('Arial', 'ArialNarrow-Italic', '400', 'italic')
+  @include fonts('Arial', 'Arial-ItalicMT', '400', 'italic')
 }
