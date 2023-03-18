@@ -1,0 +1,31 @@
+.friend-card {  
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+  background-color: $color-light-c; 
+  border-radius: 9px;   
+  padding-bottom: 30px;  
+  flex-basis: 270px;
+  flex-shrink: 0;
+
+  // @include tablet650 {
+  //   display: inline;
+  // }
+
+  &__img {
+    border-radius: 9px; 
+  }
+
+  &__title {
+    font-size: 20px;
+    color: $color-dark-l;   
+  }
+
+  &__button {
+    @include button (187px, 52px, transparent, $color-primary, 2px);
+    margin: 0 auto;
+    letter-spacing: 2px;
+  }
+
+}

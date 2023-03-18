@@ -85,7 +85,7 @@
   }
 
   &__button {
-    @include button(207px, 52px, $color-primary);
+    @include button(207px, 52px, $color-primary, $color-primary, 1px);
 
     @include desktop1100 {
       display: block;      

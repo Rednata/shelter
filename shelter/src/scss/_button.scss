@@ -1,4 +1,4 @@
-@mixin button($width, $heigth, $color) {
+@mixin button($width, $heigth, $color, $border-color, $border-width) {
   width: $width;
   height: $heigth;
   background-color: $color;
@@ -6,5 +6,8 @@
   font-size: 17px;
   color: $color-dark-3xl;
   letter-spacing: 1px;
+  border-color: $border-color;
+  border-width: $border-width;
+  border-style: solid;
 }
 

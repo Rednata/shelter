@@ -1,9 +1,12 @@
 $color-primary: #F1CDB3;
 $color-light: #ffffff;
+$color-light-c: #FAFAFA;
+$color-light-l: #F6F6F6;
 $color-dark-s: #CDCDCD;
 $color-dark-3xl: #292929;
 $color-dark-l: #545454;
 $color-dark-xl: #4C4C4C;
+
 
 @mixin fonts($name, $file-name, $width, $style) {
   font: {
@@ -24,6 +27,12 @@ $color-dark-xl: #4C4C4C;
 
 @mixin tablet850 {
   @media(max-width: 850px) {
+    @content;
+  }
+}
+
+@mixin tablet760 {
+  @media(max-width: 760px) {
     @content;
   }
 }

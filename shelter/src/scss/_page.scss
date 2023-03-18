@@ -32,9 +32,11 @@ body {
 }
 
 .page-section {
-  margin-bottom: 80px;
+  padding-top: 80px;
+  padding-bottom: 100px;
 
   @include mobile400 {
-    margin-bottom: 42px;
+    padding-top: 42px;
+    padding-bottom: 42px;
   }
 }

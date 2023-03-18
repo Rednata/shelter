@@ -1,0 +1,13 @@
+.title {
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 45px;
+  color: $color-dark-l;
+  letter-spacing: 2px;  
+  
+  @include mobile400 {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 1px;
+  }
+}

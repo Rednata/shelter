@@ -1,0 +1,110 @@
+.friends {
+  background-color: $color-light-l;  
+
+  &__container {
+    position: relative;    
+
+  }
+
+  &__title {
+    max-width:  400px;
+    margin: 0 auto;
+    margin-bottom: 60px; 
+    text-align: center;
+
+    @include mobile480 {
+      font-size: 25px;
+      line-height: 33px;
+      margin-bottom: 42px;      
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 40px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    padding-left: 53px;
+    padding-right: 53px;    
+
+    @include desktop1100 {
+      max-width: 580px;
+      overflow-x: hidden;      
+      justify-content: flex-start;
+      padding: 0;
+      
+    }
+
+    @include tablet760 {      
+      margin-bottom: 112px;
+    }
+
+    @include tablet650 {      
+      max-width: 270px;
+    }
+  }
+  
+  &__item {
+
+ 
+
+  }
+
+  &__button {
+    @include button(261px, 52px, $color-primary, $color-primary, 1px);
+    display: block;
+    margin: 0 auto;    
+  }
+
+}
+
+.pagination {  
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid $color-primary;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 32%;
+  background-image: url("../img/Arrow.svg");
+  background-color: transparent;;
+
+  &_left {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-13%);    
+
+    @include tablet760 {
+      top: 83%;
+      left: 30%;
+    }
+    @include mobile400 {
+      top: 80%;
+      left: 21%;
+    }
+  }
+
+  &_right {    
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: rotate(180deg) translate(40px, 13%);
+    //  40px - padding for container
+    
+    @include tablet850 {
+      transform: rotate(180deg) translate(30px, 13%);
+    }
+
+    @include tablet760 {
+      top: 83%;
+      right: calc(30% - 30px);
+    }
+    @include mobile400 {
+      top: 80%;
+      right: calc(21% - 30px);
+    }
+
+  }
+}
+
