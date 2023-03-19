@@ -76,11 +76,11 @@
     transform: translateY(-13%);    
 
     @include tablet760 {
-      top: 83%;
+      top: 80%;
       left: 30%;
     }
     @include mobile400 {
-      top: 80%;
+
       left: 21%;
     }
   }
@@ -97,11 +97,11 @@
     }
 
     @include tablet760 {
-      top: 83%;
+      top: 80%;
       right: calc(30% - 30px);
     }
     @include mobile400 {
-      top: 80%;
+      
       right: calc(21% - 30px);
     }
 

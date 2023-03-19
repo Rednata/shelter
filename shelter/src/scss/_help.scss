@@ -1,0 +1,57 @@
+.help {
+  
+  &__title {
+    max-width: 320px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 60px;
+  }
+
+  &__list {
+
+    display: grid;
+    grid-template-columns: repeat(20, minmax(min-content, 1fr));    
+    row-gap: 56px;
+    justify-items: center;    
+  }
+  &__item {
+
+  }
+  &__item.help-card_food {
+    grid-column: 1 / 5;
+    grid-row: 1 / 1;
+  }
+  &__item.help-card_transport {
+    grid-column: 5 / 9;
+    grid-row: 1 / 1
+  }
+  &__item.help-card_toys {
+    grid-column: 9 / 13;
+    grid-row: 1 / 1;
+  }
+  &__item.help-card_bowls {
+    grid-column: 13 / 16;
+    grid-row: 1 / 1;
+  }
+  &__item.help-card_shampoo {
+    grid-column: 17 / 20;
+    grid-row: 1 / 1;
+  }
+  &__item.help-card_vitamin {
+    grid-column: 1 / 8;
+    grid-row: 2 / 2;
+    
+  }
+  &__item.help-card_medicine {
+    grid-column: 7 / 10;
+    grid-row: 2 / 2;
+  }
+  &__item.help-card_collars {
+    grid-column: 11 / 14;
+    grid-row: 2 / 2;
+  }
+  &__item.help-card_sleep {
+    grid-column: 14 / 20;
+    grid-row: 2 / 2;
+  }
+}
