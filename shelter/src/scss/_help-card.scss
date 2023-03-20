@@ -34,7 +34,13 @@ $helpImages: food, transport, toys, bowls, shampoo, vitamin, medicine, collars, 
         width: 50px;
         height: 50px;        
       }        
+      @include mobile400 {        
+        margin-bottom: 20px;
+      }        
     }  
+    @include mobile400 {        
+      font-size: 15px;          
+    }        
   }
 
   // &_food {

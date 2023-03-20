@@ -1,10 +1,15 @@
 .help {
   
   &__title {
-    max-width: 320px;
+    max-width: 350px;
     text-align: center;
     margin: 0 auto;
     margin-bottom: 60px;
+
+    @include mobile400 {
+      max-width: 250px;
+      margin-bottom: 42px;
+    }
   }
   
   &__list {
@@ -23,6 +28,10 @@
     @include tablet760 {
       grid-template-columns: 1fr 1fr;
       row-gap: 55px;
+    }
+
+    @include mobile400 {
+      row-gap: 30px;
     }
   }
   &__item {
@@ -132,12 +141,15 @@
 }
 
 $helpImages: food, transport, toys, bowls, shampoo, vitamin, medicine, collars, sleep;
+
     @each $helpImage in $helpImages {
 
       .help__item.help-card_#{$helpImage} {
         @include tablet760 {        
           padding-left: 0;
           padding-right: 0;
+        
         }        
+       
       }  
     }
