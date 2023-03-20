@@ -25,6 +25,12 @@ $color-dark-xl: #4C4C4C;
   }
 }
 
+@mixin desktop1000 {
+  @media(max-width: 1000px) {
+    @content;
+  }
+}
+
 @mixin tablet850 {
   @media(max-width: 850px) {
     @content;

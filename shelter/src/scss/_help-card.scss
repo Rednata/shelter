@@ -5,6 +5,9 @@
   height: 60px;
   background-image: url("../icons/icon-#{$bgImg}.svg");
   margin-bottom: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 $helpImages: food, transport, toys, bowls, shampoo, vitamin, medicine, collars, sleep;
@@ -16,39 +19,40 @@ $helpImages: food, transport, toys, bowls, shampoo, vitamin, medicine, collars, 
   font-size: 20px;
   letter-spacing: 1px;
   color: $color-dark-l;  
+  // border: 1px solid red;
 
   @each $helpImage in $helpImages {
     &_#{$helpImage}:before {
-        @include helpCard($helpImage)
-      
+        @include helpCard($helpImage)      
     }  
   }
 
-  &_food {
-    padding-left: 10px;
+  @each $helpImage in $helpImages {
+
+    &_#{$helpImage}:before {
+      @include tablet760 {        
+        width: 50px;
+        height: 50px;        
+      }        
+    }  
   }
-  &_toys {
-    padding-right: 14px;
-  }
-  &_shampoo {
-    padding-left: 20px;
-  }
-  &_medicine {
-    padding-right: 40px;
-  }
-  &_collars {
-    padding-right: 10px;
-  }
+
+  // &_food {
+  //   padding-left: 10px;
+  // }
+
+  
+  // &_toys {
+  //   padding-right: 14px;
+  // }
+  // &_shampoo {
+  //   padding-left: 20px;
+  // }
+  // &_medicine {
+  //   padding-right: 40px;
+  // }
+  // &_collars {
+  //   padding-right: 10px;
+  // }
   
 }
-  
-
-
-
-
-
-// @each $theme in $themes {
-//   .section-#{$theme} {
-//     background-color: map-get($colors, $theme);
-//   }
-// }
