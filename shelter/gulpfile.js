@@ -48,8 +48,8 @@ export const copy = () => gulp
   }));
 
 export const js = () => gulp
-  .src('src/js/**/*.js')
-  .pipe(gulp.dest('dist/js'))
+  .src('src/script/**/*.js')
+  .pipe(gulp.dest('dist/script'))
   .pipe(browserSync.stream());
 
   export const server = () => {
@@ -63,7 +63,7 @@ export const js = () => gulp
     })
     gulp.watch('./src/**/*.html', html);
     gulp.watch(prepros ? './src/scss/**/*.scss' : './src/css/**/*.css', style);
-    gulp.watch('./src/js/**/*.js', js);
+    gulp.watch('./src/script/**/*.js', js);
     gulp.watch(['./src/img/**/*', './src/fonts/**/*'], copy);
   };
 

@@ -147,9 +147,7 @@ $helpImages: food, transport, toys, bowls, shampoo, vitamin, medicine, collars, 
       .help__item.help-card_#{$helpImage} {
         @include tablet760 {        
           padding-left: 0;
-          padding-right: 0;
-        
-        }        
-       
+          padding-right: 0;        
+        }               
       }  
     }

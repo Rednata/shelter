@@ -18,8 +18,7 @@ $helpImages: food, transport, toys, bowls, shampoo, vitamin, medicine, collars, 
   align-items: center;
   font-size: 20px;
   letter-spacing: 1px;
-  color: $color-dark-l;  
-  // border: 1px solid red;
+  color: $color-dark-l;    
 
   @each $helpImage in $helpImages {
     &_#{$helpImage}:before {
@@ -27,38 +26,18 @@ $helpImages: food, transport, toys, bowls, shampoo, vitamin, medicine, collars, 
     }  
   }
 
-  @each $helpImage in $helpImages {
-
-    &_#{$helpImage}:before {
-      @include tablet760 {        
-        width: 50px;
-        height: 50px;        
-      }        
-      @include mobile400 {        
-        margin-bottom: 20px;
-      }        
-    }  
+  &:before {
+    @include tablet760 {        
+      width: 50px;
+      height: 50px;        
+    }        
     @include mobile400 {        
-      font-size: 15px;          
+      margin-bottom: 20px;
     }        
   }
 
-  // &_food {
-  //   padding-left: 10px;
-  // }
+  @include mobile400 {        
+    font-size: 15px;          
+  }        
 
-  
-  // &_toys {
-  //   padding-right: 14px;
-  // }
-  // &_shampoo {
-  //   padding-left: 20px;
-  // }
-  // &_medicine {
-  //   padding-right: 40px;
-  // }
-  // &_collars {
-  //   padding-right: 10px;
-  // }
-  
 }
