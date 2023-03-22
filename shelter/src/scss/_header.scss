@@ -7,10 +7,16 @@
     gap: 80px;
 
     @include mobile550{
-      gap: 40px;
+      gap: 40px;    
     }
   }
     
+}
+
+.header-logo {
+  @include mobile400{      
+    margin-left: 10px;    
+  }
 }
 
 .header-nav {
@@ -19,5 +25,5 @@
 }
 
 .header__btn {
-  margin-right: 43px;
+  margin-right: 10px;
 }
