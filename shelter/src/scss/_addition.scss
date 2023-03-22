@@ -1,0 +1,122 @@
+.addition {
+  background-color: $color-light-l;
+  @include mobile480 {
+    margin-top: -2px;   
+  }
+
+  &__container {
+    display: flex;    
+    gap: 30px;    
+    max-width: 995px;
+
+    @include desktop1100 {
+      flex-direction: column-reverse;
+      gap: 60px;
+      align-items: center;
+
+    }
+    @include mobile480 {
+      gap: 40px;
+    }
+  }
+
+  &__img {
+    height: 261px;        
+    margin-top: 10px;
+
+    @include desktop1100 {      
+      margin-top: 2px;
+    }
+
+    @include tablet650 {
+      height: auto;
+    }
+
+    @include mobile480 {
+      width: 260px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    max-width: 380px;
+    // border: 1px solid red;
+
+    @include mobile480 {
+      padding-top: 2px;
+      align-items: center;
+      row-gap: 23px;
+    }
+  }
+
+  &__title {
+    max-width: 300px;
+    line-height: 45px;    
+
+    @include mobile480 {
+      font-size: 25px;
+      line-height: 31px;
+      max-width: 225px;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    font-size: 15px;
+    color: $color-dark-l;    
+    letter-spacing: 1px;
+
+    @include mobile480 { 
+      letter-spacing: 0;           
+    }
+  }
+
+  &__link {        
+    display: flex;
+    gap: 15px;
+    width: 349px;
+    background-color: $color-primary;
+    color: $color-dark-l;
+    border-radius: 9px;
+    padding: 10px 15px;
+    font-size: 20px;   
+    letter-spacing: 1px;   
+    
+    @include mobile480 {      
+      font-size: 17px;
+      width: 281px;     
+      letter-spacing: 0; 
+      word-spacing: -1px;
+      padding-top: 13px;
+      padding-bottom: 8px;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      height: 23px;
+      width: 30px;
+      background-image: url("../icons/credit-card.svg");
+    }
+  }
+
+  &__comment {
+    font-family: 'Arial';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: $color-dark-m;    
+
+    @include mobile480 {     
+      margin-top: -3px;
+      padding-left: 10px;
+      padding-right: 10px;
+      word-spacing: 1px;
+      text-align: justify;
+    }
+  }
+}
+

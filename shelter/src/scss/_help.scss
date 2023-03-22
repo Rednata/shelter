@@ -18,12 +18,15 @@
     grid-template-columns: repeat(20, minmax(max-content, 1fr));       
     grid-auto-flow: dense; 
     row-gap: 56px;
-    column-gap: 20px;
+    // column-gap: 18px;
     justify-items: center;    
+    // padding-left: 13px;
+    // padding-right: 10px;
 
     @include desktop1100 {
       grid-template-columns: repeat(3, 1fr);
       row-gap: 55px;
+      column-gap: 18px;
     }
     @include tablet760 {
       grid-template-columns: 1fr 1fr;
