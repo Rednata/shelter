@@ -1,0 +1,125 @@
+.footer {
+
+  background: url(../img/bgcrap.png), 
+  radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;  
+
+  &__container {
+    background-image: url("../img/footer-puppy.png");
+    background-repeat: no-repeat;
+    background-position: right 40px bottom;
+    padding-top: 56px;  
+    padding-bottom: 60px;    
+
+    @include desktop1100 {
+      background-position: bottom;
+      padding-top: 30px;  
+      padding-bottom: 375px;    
+    }
+    @include mobile480 {      
+      background-size: 81%;
+      padding-bottom: 310px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    gap: 129px;    
+    justify-content: start;    
+    
+
+    @include desktop1100 {
+      justify-content: center;
+      gap: 42px;
+      padding-left: 34px;
+      padding-right: 34px;
+    }
+
+    @include tablet760 {
+      flex-direction: column;      
+      gap: 42px;
+      align-items: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include mobile480 {      
+      gap: 44px;      
+    }
+  }
+
+  &__title {
+    font-size: 35px;
+    line-height: 45px;
+    color: $color-light;
+    letter-spacing: 2px;     
+    @include tablet650 {
+      font-size: 30px;
+      line-height: 38px;
+      text-align: center;   
+    }   
+    @include mobile480 {
+      font-size: 25px;     
+      line-height: 33px; 
+    }   
+  }
+  
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;    
+    max-width: 310px;
+    color: $color-primary;
+    font-size: 20px;
+    line-height: 23px;  
+
+    @include desktop1100 {
+      max-width: none;
+    }
+    @include tablet650 {
+      max-width: 300px;
+    }
+    @include mobile480 {
+      gap: 38px;
+    }
+ 
+  }
+
+  &__icon {
+    display: flex;
+    gap: 20px;    
+    align-items: center;
+    letter-spacing: 1px;     
+
+    &:before {
+      @extend %footerIconMaket;      
+    }      
+    
+    &_mail {
+      @include mobile480 {      
+        margin-left: 24px;      
+      }  
+      &:before {
+        background-image: url("../icons/icon-mail.svg");      
+      }
+    }
+    
+    &_phone {
+      @include mobile480 {      
+        margin-left: 30px;      
+      }  
+      &:before {
+        background-image: url("../icons/icon-phone.svg");
+      }
+    }
+
+    &_marker {      
+      word-spacing: 1px;
+
+      &:before {
+        background-image: url("../icons/icon-marker.svg");               
+        width: 27px;
+        margin-right: -6px;
+      }
+    }
+  }
+}

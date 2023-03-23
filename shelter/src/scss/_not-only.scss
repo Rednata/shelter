@@ -1,12 +1,10 @@
 .not-only {    
-  // background-image: url('../img/bgcrap.png'), url('../img/bgphone.png'),  
-  // radial-gradient(#5B483A 0%, #262425 100%);  
-  background-image: url('../img/bgcrap.png'),   
-  linear-gradient(#5B483A 0%, #262425 100%);  
-  // background-color: tomato;
+  background: url('../img/bgcrap.png'), 
+  radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
+ 
+  
   padding-top: 175px;
-  // background-position: center;
-  // background-repeat: no-repeat;  
+  
 
   @include desktop1100 {
     padding-top: 152px;

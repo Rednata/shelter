@@ -4,6 +4,7 @@ import gulpCssimport from 'gulp-cssimport';
 import sassPkg from 'sass';
 import gulpSass from 'gulp-sass';
 import del from 'del';
+import sourcemap from 'gulp-sourcemaps';
 
 const prepros = true;
 
@@ -20,7 +21,9 @@ export const style = () => {
   if (prepros) {
     return gulp
       .src('src/scss/**/*.scss')
+      .pipe(sourcemap.init())
       .pipe(sass().on('error', sass.logError))
+      .pipe(sourcemap.write('../maps'))
       .pipe(gulp.dest('dist/style'))
       .pipe(browserSync.stream());
   } 
