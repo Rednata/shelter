@@ -11,7 +11,15 @@
   <link rel="preload" href="fonts/Arial-ItalicMT.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="stylesheet" href="style/index.css">
   <script src="script/index.js" type="module"></script>
-  <title>Document</title>
+
+  
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon.ico">
+<link rel="manifest" href="icons/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<title>The Shelter CozyHouse</title>
 </head>
 <body>
   <header class="page-header header">    
@@ -28,22 +36,22 @@
       <nav class="header-nav nav">
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" href="#">
+            <a class="nav__link nav__link_active" href="#" inert>
               About the shelter
             </a>          
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#">
+            <a class="nav__link" href="pets.html">
               Our pets
             </a>          
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#">
+            <a class="nav__link" href="#help">
               Help the shelter
             </a>          
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#">
+            <a class="nav__link" href="#contacts">
               Contacts
             </a>          
           </li>
@@ -65,13 +73,14 @@
     <section class="not-only">
       <div class="not-only__container container">
         <div class="not-only__content">
-          <h1 class="not-only__title">
+          <h1 class="visually-hidden">The shelter CozyHouse: not only people need a house</h1>
+          <h2 class="not-only__title">
             Not only people need&nbsp;a house
-          </h1>
+          </h2>
           <div class="not-only__text">
             We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!
           </div>
-          <button class="not-only__button button">Make a friend</button>
+          <a class="not-only__button button" href="#friends">Make a friend</a>
   
         </div>
   
@@ -79,7 +88,7 @@
           <picture>            
             <source srcset="img/start-screen-puppy320.png" media="(max-width:550px)">
             <source srcset="img/start-screen-puppy768.png" media="(max-width:1100px)">
-            <img class="not-only__img" src="img/start-screen-puppy.png" alt="">
+            <img class="not-only__img" src="img/start-screen-puppy.png" alt="щенок бело-рыжего окраса">
           </picture>
           
         </div>
@@ -89,7 +98,7 @@
 
     <section class="about page-section container">
       <div class="about__container">
-        <img class="about__img" src="img/about-pets.jpg" alt="">
+        <img class="about__img" src="img/about-pets.jpg" alt="дымчатый кот и собака похожая на породу ретривер">
         <div class="about__content">
           <h2 class="title about__title">
             About the shelter “Cozy House”
@@ -105,48 +114,50 @@
       </div>
     </section>
 
-    <section class="friends  page-section">
+    <section class="friends  page-section" id="friends">
       <div class="friends__container container">
         <h2 class="title friends__title">
           Our friends who are&nbsp;looking for a house
         </h2>
         
           <ul class="friends__list">
-            <li class="friends__item friend-card">
-              <img src="img/pets-katrine.jpg" alt="" class="friend-card__img">
-              <p class="friend-card__title">
-                Katrine
-              </p>
-              <button class="friend-card__button button">Learn more</button>
+
+            <li class="friends__item friend-card">              
+                <img src="img/pets-katrine.jpg" alt="дымчатая кошка" class="friend-card__img">
+                <p class="friend-card__title">
+                  Katrine
+                </p>
+                <button class="friend-card__button button">Learn more</button>                            
             </li>
-            <li class="friends__item friend-card">
-              <img src="img/pets-jennifer.jpg" alt="" class="friend-card__img">
-              <p class="friend-card__title">
-                Jennifer
-              </p>
-              <button class="friend-card__button button">Learn more</button>
+
+            <li class="friends__item friend-card">              
+                <img src="img/pets-jennifer.jpg" alt="щенок походий на породу ретривера" class="friend-card__img">
+                <p class="friend-card__title">
+                  Jennifer
+                </p>
+                <button class="friend-card__button button">Learn more</button>                            
             </li>
-            <li class="friends__item friend-card noactive">
-              <img src="img/pets-woody.jpg" alt="" class="friend-card__img">
-              <p class="friend-card__title">
-                Woody
-              </p>
-              <button class="friend-card__button button">Learn more</button>
+
+            <li class="friends__item friend-card">              
+                <img src="img/pets-woody.jpg" alt="собака похожая на породу сеттер" class="friend-card__img">
+                <p class="friend-card__title">
+                  Woody
+                </p>
+                <button class="friend-card__button button">Learn more</button>                            
             </li>
           </ul>
-          <button class="friends__button button">
+
+          <a class="friends__button button" href="pets.html">
             Get to know the rest
-          </button>
+          </a>
 
           <button class="pagination pagination_left"></button>
           <button class="pagination pagination_right"></button>
         </div>
-
-      </div>
       
     </section>
 
-    <section class="help page-section">
+    <section class="help page-section" id="help">
       <div class="container">
         <h2 class="title help__title">
           How you can help our shelter
@@ -187,14 +198,14 @@
     <section class="addition page-section">
       <div class="addition__container container">
         
-          <img class="addition__img" src="img/donation-dog.png" alt="">
+          <img class="addition__img" src="img/donation-dog.png" alt="щенок золотисто-рыжего окраса с грустными глазами">
           <div class="addition__content">
             <h2 class="title addition__title">
               You can also make&nbsp;a donation
             </h2>          
               
             <p class="addition__subtitle">Name of the bank / Type of bank account</p>
-            <a href="#" class="addition__link">
+            <a  class="addition__link">
               8380 2880 8028 8791 7435
             </a>
             <p class="addition__comment">
@@ -206,18 +217,18 @@
     </section>    
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="contacts">
     <div class="container footer__container">
       <div class="footer__wrap">
         <div class="footer__info">
           <p class="footer__title">For questions and suggestions</p>
-          <a href="" class="footer__icon footer__icon_mail">email@shelter.com</a>
-          <a href="" class="footer__icon footer__icon_phone">+13 674 567 75 54</a>
+          <a href="mailto:email@shelter.com" class="footer__icon footer__icon_mail">email@shelter.com</a>
+          <a href="tel:+136745677554" class="footer__icon footer__icon_phone">+13 674 567 75 54</a>
         </div>
         <div class="footer__info">
           <p class="footer__title">We are waiting for your visit</p>
-          <a href="" class="footer__icon footer__icon_marker">1 Central Street, Boston (entrance from the store)</a>
-          <a href="" class="footer__icon footer__icon_marker">18 South Park, London </a>
+          <a href="https://www.google.com/maps/place/1+Central+St,+Boston" class="footer__icon footer__icon_marker" target="_blank">1 Central Street, Boston (entrance from the store)</a>
+          <a href="https://www.google.com/maps/place/South+Park+Court,+18+S+Park+Rd,+London+SW19+8TD,+%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE%D0%B1%D1%80%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F/@51.4202685,-0.2023686,17z" class="footer__icon footer__icon_marker" target="_blank">18 South Park, London </a>
         </div>
       </div>
       

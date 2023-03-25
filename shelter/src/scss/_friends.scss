@@ -3,7 +3,7 @@
 
   &__container {
     position: relative;    
-
+    // border: 1px solid red;    
   }
 
   &__title {
@@ -26,7 +26,8 @@
     margin: 0 auto;
     margin-bottom: 60px;
     padding-left: 53px;
-    padding-right: 53px;    
+    padding-right: 53px;     
+    // border: 1px solid red;
 
     @include desktop1100 {
       max-width: 580px;
@@ -45,16 +46,12 @@
     }
   }
   
-  &__item {
-
- 
-
-  }
-
   &__button {
     @include button(261px, 52px, $color-primary, $color-primary, 1px);
-    display: block;
+    display: flex;
     margin: 0 auto;    
+    align-items: center;
+    justify-content: center;
   }
 
 }
@@ -68,7 +65,17 @@
   background-repeat: no-repeat;
   background-size: 32%;
   background-image: url("../img/Arrow.svg");
-  background-color: transparent;;
+  background-color: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+  }
+  &:active {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
 
   &_left {
     position: absolute;
@@ -90,7 +97,6 @@
     top: 50%;
     right: 0;
     transform: rotate(180deg) translate(40px, 13%);
-    //  40px - padding for container
     
     @include tablet850 {
       transform: rotate(180deg) translate(30px, 13%);
@@ -104,7 +110,112 @@
       
       right: calc(21% - 30px);
     }
-
   }
 }
 
+.pet-friends {
+
+  @include tablet850 {
+    padding-bottom: 77px;
+  }
+
+  @include mobile400 {
+    padding-top: 40px;
+    padding-bottom: 45px;
+  }
+
+
+  .friends__title {
+    @include tablet850 {
+      margin-bottom: 30px;
+    }
+
+    @include mobile400 {
+      margin-bottom: 42px;
+    }
+    
+  }
+
+  .friends__list {
+    flex-wrap: wrap;
+    padding-left: 0;
+    padding-right: 0;
+    row-gap: 29px;
+
+    @media (max-width: 1279px) {
+      max-height: 1368px;
+      max-width: 850px;
+      overflow-y: hidden;            
+      justify-content: space-evenly;
+    }
+
+    @include tablet850 {
+      max-width: 580px;
+      margin-bottom: 35px;
+    }
+  }
+}
+
+.pagination-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  @include mobile480 {
+    gap: 10px
+  }
+}
+.pets-pagination {  
+
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid $color-primary;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &:disabled {
+    border-color: $color-dark-s;
+    color: $color-dark-s;
+    cursor: default;
+}
+
+  &:not([disabled]):hover {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+  }
+  &:not([disabled]):active {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+
+
+  // &__start {    
+  //   border-color: $color-dark-s;
+  //   color: $color-dark-s
+  // }
+
+  // &__next {
+  //   border-color: $color-dark-s;
+  //   color: $color-dark-s
+  // }
+
+  &__current {
+    font-size: 20px;
+    background-color: $color-primary;
+    color: $color-dark-3xl;
+  }
+
+  &__prev {
+    transform: rotate(180deg);
+    border-color: $color-primary;
+    color: $color-dark-3xl;
+  }
+  &__end {
+    transform: rotate(180deg);
+    border-color: $color-primary;
+    color: $color-dark-3xl;
+  }
+}

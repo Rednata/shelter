@@ -42,7 +42,7 @@
       padding-right: 0;
     }
     @include mobile480 {      
-      gap: 44px;      
+      gap: 42px;      
     }
   }
 
@@ -58,7 +58,7 @@
     }   
     @include mobile480 {
       font-size: 25px;     
-      line-height: 33px; 
+      line-height: 32px; 
     }   
   }
   
@@ -79,7 +79,7 @@
       max-width: 300px;
     }
     @include mobile480 {
-      gap: 38px;
+      gap: 39px;
     }
  
   }

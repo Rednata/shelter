@@ -9,5 +9,10 @@
   border-color: $border-color;
   border-width: $border-width;
   border-style: solid;
+  transition: background-color 0.3s ease;
 }
 
+.button:hover {
+  background-color: $color-primary-light;
+  border-color: $color-primary-light;
+}

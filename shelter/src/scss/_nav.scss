@@ -10,7 +10,59 @@
     gap: 35px;
     font-family: Arial, sans-serif;
     color: $color-dark-s;
-    font-size: 15px;    
+    font-size: 15px;        
+
   }
 
+
+  &__link {
+    display: block;
+    transition: color 0.3s ease;  
+    padding-top: 5px;
+    
+    &:active:after {
+
+      transform: scale(1);
+    }
+
+  &:after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $color-primary;    
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+    margin-top: 5px;    
+  }
+
+    &:hover {
+      color: $color-light-s;
+    }
+  }  
+
+  &__link_active {
+    color: $color-light-s;    
+
+    &:after {
+      margin-top: 5px;    
+      transform: scale(1);    
+    }
+  }
 }
+
+.pets-nav {
+  .nav__link {
+    color: $color-dark-l;
+
+    &:hover {
+      color: $color-dark-3xl
+    }
+
+    &_active {
+      color: $color-dark-3xl;
+    }
+  }
+}
+

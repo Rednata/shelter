@@ -84,10 +84,12 @@
 
   &__button {
     @include button(207px, 52px, $color-primary, $color-primary, 1px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    @include desktop1100 {
-      display: block;      
-      margin: 0 auto 100px;
+    @include desktop1100 {      
+      margin: 0 auto 100px;                  
 
     }
   }
