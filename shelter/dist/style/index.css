@@ -445,8 +445,52 @@ iframe {
   padding-bottom: 30px;
 }
 
+.overlay {
+  position: absolute;
+  background-color: rgba(41, 41, 41, 0.6);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.overlay_active {
+  opacity: 1;
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #292929;
+  transform: translateX(200%);
+  transition: transform 0.8s ease;
+}
+.burger__nav {
+  flex-direction: column;
+  align-items: center;
+}
+.burger__nav .nav__item {
+  font-size: 32px;
+  line-height: 51px;
+}
+.burger_active {
+  transform: translateX(0);
+  transition: transform 0.8s ease;
+}
+
 .menu-btn {
   display: none;
+  position: sticky;
+  z-index: 10;
+  transition: transform 0.5s ease-in-out;
 }
 @media (max-width: 550px) {
   .menu-btn {
@@ -467,6 +511,10 @@ iframe {
 }
 .menu-btn__dash_pets {
   background-color: #000;
+}
+.menu-btn_active {
+  transform: rotate(-90deg);
+  transition: all 0.5s ease-in-out;
 }
 
 body {

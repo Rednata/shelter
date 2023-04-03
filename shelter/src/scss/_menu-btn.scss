@@ -1,5 +1,8 @@
 .menu-btn {
   display: none;
+  position: sticky;
+  z-index: 10;  
+  transition: transform 0.5s ease-in-out;
 
   @include mobile550 {
     display: flex;
@@ -20,5 +23,11 @@
     &_pets {
       background-color: #000;
     }
+  }
+
+  &_active {
+    transform: rotate(-90deg);
+    transition: all 0.5s ease-in-out;
+    
   }
 }
