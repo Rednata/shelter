@@ -1,5 +1,3 @@
-console.log('111111111111');
-
 export const controlBurger = () => {
   const btnMenu = document.querySelector('.menu-btn');  
   const menu = document.querySelector('.burger'); 
