@@ -2,30 +2,23 @@
 /******/ 	"use strict";
 var __webpack_exports__ = {};
 
-;// CONCATENATED MODULE: ./src/script/modules/burger.js
-console.log('111111111111');
-const controlBurger = () => {
-  const btnMenu = document.querySelector('.menu-btn');
-  const menu = document.querySelector('.burger');
-  const overlay = document.querySelector('.overlay');
-  btnMenu.addEventListener('click', () => {
-    menu.classList.toggle('burger_active');
-    overlay.classList.toggle('overlay_active');
-    btnMenu.classList.toggle('menu-btn_active');
-  });
-  const linkMenu = document.querySelectorAll('.burger .nav__link');
-  linkMenu.forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.toggle('burger_active');
-      overlay.classList.toggle('overlay_active');
-      btnMenu.classList.toggle('menu-btn_active');
-    });
-  });
-};
-;// CONCATENATED MODULE: ./src/script/index.js
-
 const init = () => {
-  controlBurger();
+  // controlBurger();
+  console.log(`
+Требования по ТЗ соблюдены. Оцениваю работу на 100 баллов.
+1. Вёрстка страницы Main соответствует макету при ширине экрана 1280px: +14
+2. Вёрстка страницы Main соответствует макету при ширине экрана 768px: +14
+3. Вёрстка страницы Main соответствует макету при ширине экрана 320px: +14
+4. Вёрстка страницы Pets соответствует макету при ширине экрана 1280px: +6
+5. Вёрстка страницы Pets соответствует макету при ширине экрана 768px: +6
+6. Вёрстка страницы Pets соответствует макету при ширине экрана 320px: +6
+7. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки, справа от отдельных блоков не появляются белые поля. Весь контент страницы при этом сохраняется: не обрезается и не удаляется: +20
+8. Верстка резиновая: при плавном изменении размера экрана от 1280px до 320px верстка подстраивается под этот размер, элементы верстки меняют свои размеры и расположение, не наезжают друг на друга, изображения могут менять размер, но сохраняют правильные пропорции (Примеры неправильной и правильной реализации): +8
+9. При ширине экрана меньше 768px на обеих страницах меню в хедере скрывается, появляется иконка бургер-меню: +4
+   Открытие меню при клике на иконку бургер-меню на текущем этапе не проверяется
+11. Верстка обеих страниц валидная: для проверки валидности вёрстки используйте сервис https://validator.w3.org/ : +8
+
+`);
 };
 init();
 /******/ })()

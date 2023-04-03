@@ -1,11 +1,8 @@
 .not-only {    
   background: url('../img/bgcrap.png'), 
   radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
- 
-  
   padding-top: 175px;
   
-
   @include desktop1100 {
     padding-top: 152px;
   }
@@ -18,10 +15,6 @@
       flex-direction: column;
       align-items: center;
     }
-
-    @include tablet650 {
-      // align-items: center;
-    }
   }
 
   &__content {
@@ -32,6 +25,11 @@
     
     @include desktop1100 {
       margin-top: 0;
+      max-width: 80%;
+    }
+
+    @include tablet780 {
+      max-width: 460px;
     }
 
     @include tablet650 {
@@ -56,19 +54,20 @@
       max-width: 85%;       
     }
     @include mobile550 {
-      max-width: 53%;  
-      font-size: 25px;  
-      line-height: 30px;  
+      max-width: 65%;  
+      font-size: 7vw;  
+      line-height: calc(7vw + 15%);      
       word-spacing: 2px;
       margin-left: 12px;
       letter-spacing: 1px; 
-      margin: 0 auto 44px;      
-    }
-    @include mobile480 {
-      max-width: 60%;        
-    }
+      margin: 0 auto 40px;      
+    }    
     @include mobile400 {
       max-width: 65%;        
+    }
+    @include mobile340 {
+      font-size: 25px;
+      line-height: 32px;       
     }
   }
 

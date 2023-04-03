@@ -15,7 +15,7 @@
       padding-top: 30px;  
       padding-bottom: 375px;    
     }
-    @include mobile480 {      
+    @include mobile340 {      
       background-size: 81%;
       padding-bottom: 310px;
     }
@@ -24,8 +24,7 @@
   &__wrap {
     display: flex;
     gap: 129px;    
-    justify-content: start;    
-    
+    justify-content: start;        
 
     @include desktop1100 {
       justify-content: center;
@@ -41,8 +40,19 @@
       padding-left: 0;
       padding-right: 0;
     }
+
+    @include tablet650 {
+      align-items: flex-start;
+    }
     @include mobile480 {      
       gap: 42px;      
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    @include mobile400 {             
+      align-items: center;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
@@ -50,15 +60,19 @@
     font-size: 35px;
     line-height: 45px;
     color: $color-light;
-    letter-spacing: 2px;     
+    letter-spacing: 2px;    
+    
     @include tablet650 {
       font-size: 30px;
       line-height: 38px;
-      text-align: center;   
+      font-size: 1.5em;      
     }   
-    @include mobile480 {
-      font-size: 25px;     
+    @include mobile480 {      
       line-height: 32px; 
+    }   
+    @include mobile400 {
+      font-size: 25px;     
+      text-align: center;
     }   
   }
   
@@ -74,14 +88,23 @@
 
     @include desktop1100 {
       max-width: none;
-    }
+    }    
     @include tablet650 {
-      max-width: 300px;
+      max-width: 100%;      
+      font-size: 4vw;      
     }
+    @include mobile480 {
+      max-width: 100%;      
+      font-size: 5vw;      
+    }    
     @include mobile480 {
       gap: 39px;
     }
- 
+    @include mobile400 {      
+      max-width: 300px;
+      text-align: center;
+      font-size: 20px;
+    }
   }
 
   &__icon {
@@ -95,7 +118,7 @@
     }      
     
     &_mail {
-      @include mobile480 {      
+      @include mobile400 {      
         margin-left: 24px;      
       }  
       &:before {
@@ -104,7 +127,7 @@
     }
     
     &_phone {
-      @include mobile480 {      
+      @include mobile400 {      
         margin-left: 30px;      
       }  
       &:before {
@@ -114,6 +137,7 @@
 
     &_marker {      
       word-spacing: 1px;
+      text-align: left;
 
       &:before {
         background-image: url("../icons/icon-marker.svg");               

@@ -51,6 +51,12 @@ $color-dark-m: #B2B2B2;
   }
 }
 
+@mixin tablet780 {
+  @media(max-width: 780px) {
+    @content;
+  }
+}
+
 @mixin tablet760 {
   @media(max-width: 760px) {
     @content;
@@ -77,6 +83,12 @@ $color-dark-m: #B2B2B2;
 
 @mixin mobile400 {
   @media(max-width: 400px) {
+    @content;
+  }
+}
+
+@mixin mobile340 {
+  @media(max-width: 340px) {
     @content;
   }
 }
