@@ -5,8 +5,14 @@ import sassPkg from 'sass';
 import gulpSass from 'gulp-sass';
 import del from 'del';
 import sourcemap from 'gulp-sourcemaps';
+import webpack from 'webpack';
+import webpackStream from 'webpack-stream';
+import gulpif from 'gulp-if';
+import terser from 'gulp-terser';
+
 
 const prepros = true;
+let dev = false;
 
 // задачи
 
@@ -50,10 +56,47 @@ export const copy = () => gulp
     once: true
   }));
 
-export const js = () => gulp
-  .src('src/script/**/*.js')
-  .pipe(gulp.dest('dist/script'))
-  .pipe(browserSync.stream());
+// export const js = () => gulp
+//   .src('src/script/**/*.js')
+//   .pipe(gulp.dest('dist/script'))
+//   .pipe(browserSync.stream());
+
+const webpackConf = {
+  mode: dev ? 'development' : 'production',
+  devtool: dev ? 'eval-source-map' : false,
+  optimization: {
+    minimize: false,
+  },
+  entry: {
+    index: './src/script/index.js',    
+  },
+  output: {
+    filename: 'index.js',
+    sourceMapFilename: "[name].js.map",
+  },
+  module: {
+    rules: [],
+  },
+};
+
+if (!dev) {
+  webpackConf.module.rules.push({
+    test: /\.(js)$/,
+    exclude: /(node_modules)/,
+    loader: 'babel-loader',
+  });
+}
+
+export const js = () =>
+  gulp
+    .src('src/script/**/*.js')
+    // .pipe(plumber())
+    .pipe(webpackStream(webpackConf, webpack))
+    .pipe(gulpif(!dev, gulp.dest('dist/script')))    
+    .pipe(gulpif(!dev, terser()))
+    .pipe(gulp.dest('dist/script'))
+    .pipe(browserSync.stream());
+
 
   export const server = () => {
     browserSync.init({
@@ -72,12 +115,17 @@ export const js = () => gulp
 
   export const clear = () => del('dist/**/*', {forse: true,});
 
+  const develop = (ready) => {
+    dev = true;
+    ready();
+  };
+
   //  запуск
   export const base = gulp.parallel(html, style, js, copy);
 
   export const build = gulp.series(clear, base);
 
-  export default gulp.series(base, server);
+  export default gulp.series(develop, base, server);
     
 
   
