@@ -47,7 +47,8 @@ export const copy = () => gulp
   .src([
     'src/fonts/**/*',
     'src/img/**/*',
-    'src/icons/**/*'
+    'src/icons/**/*',
+    'src/fonts/pets.json',
   ], {
     base: 'src'
   })  

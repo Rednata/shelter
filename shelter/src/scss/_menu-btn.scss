@@ -2,9 +2,9 @@
   display: none;
   position: sticky;
   z-index: 10;  
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;  
 
-  @include mobile550 {
+  @include tablet767 {
     display: flex;
     flex-direction: column;
     width: 30px;
@@ -17,11 +17,17 @@
   &__dash {
     display: block;
     width: 100%;    
-    height: 2px;
+    height: 2px;    
     background-color: $color-primary;
 
     &_pets {
       background-color: #000;
+      transition: background-color 1s ease;
+
+    }
+
+    &_pets-active {
+      background-color: $color-primary;
     }
   }
 

@@ -1,6 +1,6 @@
 .nav {
 
-  @include mobile550 {
+  @include tablet767 {
     display: none;
   }
 

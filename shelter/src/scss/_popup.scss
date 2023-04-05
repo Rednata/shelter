@@ -1,0 +1,139 @@
+.overlay-popup {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &_active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;   
+    position: fixed;
+    align-items: center;
+    justify-content: center;    
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;    
+    background-color: rgba(41, 41, 41, 0.6);         
+  }
+
+  &_delete {
+    animation: popUpDelete 0.5s;
+  }
+}
+
+@keyframes popUpDelete {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+}
+
+.popup {
+  position: relative;
+  max-width:  900px;
+  max-height: 500px;
+  background-color: $color-light-l;
+  border-radius: 9px;
+  margin: 100px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include desktop1100 {
+    // max-width: 630px;
+    // max-height: 350px;
+  }
+
+  &__container {
+    display: flex;
+    gap: 29px;       
+    border: 1px solid red; 
+  }
+
+  &__btn {
+    position: absolute;
+    top:0;
+    right: 0;
+    transform: translate(100%, -100%);    
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: transparent;    
+    background-image: url("../icons/closeVector.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+    
+    border: 2px solid $color-primary;
+  }
+
+  &__img {
+    border-radius: 9px 0 0 9px;
+    // width: 80%;
+    border: 1px solid red;
+    flex-shrink: 1;
+  }
+
+  &__content {
+    padding: 50px 20px;   
+    border: 1px solid red;
+    width: 40%;
+  }
+
+  &__title {
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }  
+
+  &__text {
+    font-size: 16px;
+    line-height: 17px;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    
+
+  }
+
+  &__li {
+    display: flex;
+    align-items: center;    
+    gap: 10px;    
+
+    &:not(:last-child) {
+      margin-bottom: 11px;
+
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: $color-primary;    
+      
+    }
+  }
+
+  &__key {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  &__value {
+    font-size: 15px;
+  }
+
+  
+}

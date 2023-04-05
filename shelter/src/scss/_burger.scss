@@ -1,5 +1,5 @@
 .overlay {
-  position: absolute;
+  position: absolute;  
   background-color: rgba(41, 41, 41, 0.6);
   top: 0;
   bottom: 0;
@@ -9,6 +9,8 @@
   opacity: 0;
   transition: opacity 0.5s ease, visibility 0.5s ease;
   visibility: hidden;
+  z-index: 5;
+
   &_active {
     opacity: 1;
     visibility: visible;

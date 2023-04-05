@@ -57,6 +57,12 @@ $color-dark-m: #B2B2B2;
   }
 }
 
+@mixin tablet767 {
+  @media(max-width: 767px) {
+    @content;
+  }
+}
+
 @mixin tablet760 {
   @media(max-width: 760px) {
     @content;
