@@ -1,13 +1,11 @@
 .overlay-popup {
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  position: fixed;  
+  transition: opacity 1s ease, visibility 0.3s ease;
 
   &_active {
     display: flex;
-    opacity: 1;
-    visibility: visible;   
-    position: fixed;
+    opacity: 1;    
     align-items: center;
     justify-content: center;    
     top: 0;
@@ -15,6 +13,7 @@
     right: 0;
     left: 0;    
     background-color: rgba(41, 41, 41, 0.6);         
+    transition: opacity 0.3s ease-in-out;
   }
 
   &_delete {
@@ -31,28 +30,38 @@
     opacity: 0;
     visibility: hidden;
   }
-  
 }
 
 .popup {
   position: relative;
-  max-width:  900px;
-  max-height: 500px;
-  background-color: $color-light-l;
+  max-width: 70.5vw;
+  min-height: 39vw;
+  background-color: $color-light-s;
   border-radius: 9px;
   margin: 100px;
   margin-left: auto;
   margin-right: auto;
 
   @include desktop1100 {
-    // max-width: 630px;
-    // max-height: 350px;
+    max-width: 82vw;
+  }
+  @include tablet650 {
+    min-width: 240px;    
+  }
+  @include mobile400 {
+    max-width: 240px;
   }
 
   &__container {
     display: flex;
-    gap: 29px;       
-    border: 1px solid red; 
+    gap: 38px;       
+    @include tablet850 {
+      gap: 31px;
+    } 
+    @include tablet650 {
+      display: block;
+      padding-top: 5px;
+    } 
   }
 
   &__btn {
@@ -67,43 +76,133 @@
     background-image: url("../icons/closeVector.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 12px;
-    
+    background-size: 12px;    
     border: 2px solid $color-primary;
+    transition: background-color 0.3s ease, border 0.3s ease;
+
+    @include tablet850 {
+      transform: translate(81%, -100%);    
+    }
+    @include mobile480 {
+      transform: translate(59%, -100%);    
+    }
+
+    &:hover {
+      background-color: $color-primary-light;
+      border: 2px solid $color-primary-light;
+    }
+
+    &:active {
+      background-color: $color-primary;
+      border: 2px solid $color-primary;
+    }
   }
 
   &__img {
-    border-radius: 9px 0 0 9px;
-    // width: 80%;
-    border: 1px solid red;
-    flex-shrink: 1;
+    border-radius: 9px 0 0 9px;        
+    flex-shrink: 1;    
+    margin-left: 10px;
+    @include tablet760 {
+      align-self: center;
+
+    }
+    @include tablet650 {
+      display: none;
+    }
+
+    img {
+      display: block;      
+      @include tablet850 {
+        width: auto;
+        height: 100%;        
+      }
+    }
   }
 
   &__content {
-    padding: 50px 20px;   
-    border: 1px solid red;
-    width: 40%;
+    padding: 4.1vw 20px 10px 0;       
+    width: 30vw;    
+    letter-spacing: 1px;       
+
+    @include desktop1100 {
+      padding-top: 13px;
+      padding-right: 7px;
+      width: 55vw;
+      
+    }
+    @include tablet650 {
+      margin: 0 auto;
+      padding: 15px;
+      text-align: center;    
+      width: 60vw;
+  
+      
+    }
+
+    @include mobile400 {
+      width: 100% ;
+      padding: 8px;
+    }
   }
 
   &__title {
     font-size: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+
+    @include desktop1100 {
+      margin-bottom: 10px;
+    }
+
+    @include tablet650 {
+      letter-spacing: 2px;
+      margin-bottom: 11px;
+    }
   }
 
   &__subtitle {
     font-size: 20px;
     margin-bottom: 40px;
+
+    @include desktop1100 {
+      margin-bottom: 20px;
+    }    
   }  
 
   &__text {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 17px;
     margin-bottom: 40px;
+    letter-spacing: 1px;    
+
+    @include desktop1100 {     
+      margin-bottom: 20px;
+    }
+    @include desktop1000 {
+      font-size: 13px;
+      line-height: 14px;           
+    }
+    @include tablet650 {
+      text-align: justify;
+    }
+    @include mobile400 {
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
   }
 
   &__list {
+    @include tablet850 {
+      margin-bottom: 30px;
+    }
+    @include tablet650 {
+      margin-bottom: 10px;
+    }
+    @include tablet650 {
+      margin-bottom: 0;
+      padding-bottom: 4px;
+    }
     
-
   }
 
   &__li {
@@ -114,6 +213,14 @@
     &:not(:last-child) {
       margin-bottom: 11px;
 
+      @include desktop1100 {
+        margin-bottom: 5px;
+      }      
+    }
+
+    @include mobile400 {
+      gap: 13px;
+      letter-spacing: 2px;
     }
 
     &:before {
@@ -122,8 +229,7 @@
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background-color: $color-primary;    
-      
+      background-color: $color-primary;          
     }
   }
 
