@@ -134,6 +134,9 @@ const controlPopup = () => {
 
 ;// CONCATENATED MODULE: ./src/script/modules/slider.js
 
+const leftBtn = document.querySelector('.pagination_left');
+const rightBtn = document.querySelector('.pagination_right');
+const list = document.querySelector('.friends__list');
 const getRandomID = () => {
   const min = 0;
   const max = 7;
@@ -190,80 +193,136 @@ const renderList = async (arr, id) => {
   li.append(...cards);
   return li;
 };
+const renderTemp = async (arr, id) => {
+  const url = '../fonts/pets.json';
+  const data = await getPetsData(url);
+  const cards = arr.map(id => createItem(data[id]));
+  return cards;
+};
 const getNewCards = (count, arr) => {
   const tempArr = [...arr];
   const nextArray = getRandomArray(count * 2, tempArr).splice(count, count);
   return nextArray;
 };
+const taskLeftBtn = () => {
+  const width = document.body.offsetWidth;
+  const width1 = list.offsetWidth;
+  console.log(width1);
+  if (width > 1200) {
+    list.classList.add('move_left990');
+  } else if (width <= 500) {
+    list.classList.add('move_left270');
+  } else {
+    list.classList.add('move_left700');
+  }
+  leftBtn.removeEventListener('click', taskLeftBtn);
+};
+const taskRightBtn = () => {
+  const width = document.body.offsetWidth;
+  const width1 = list.offsetWidth;
+  console.log(width1);
+  if (width > 1200) {
+    list.classList.add('move_right990');
+  } else if (width <= 500) {
+    list.classList.add('move_right270');
+  } else {
+    list.classList.add('move_right700');
+  }
+  rightBtn.removeEventListener('click', taskRightBtn);
+};
+const getCurrentArray = () => {
+  const currentCards = document.querySelectorAll('#current .friend-card');
+  const currentArray = [];
+  currentCards.forEach(elem => {
+    currentArray.push(+elem.id);
+  });
+  return currentArray;
+};
 const onClickLeftBtn = (list, count) => {
-  const leftBtn = document.querySelector('.pagination_left');
-  leftBtn.addEventListener('click', async () => {
-    list.classList.add('move_left');
-    list.addEventListener('animationend', () => {
-      list.className = 'friends__list';
-      const right = document.querySelector('#right');
-      const current = document.querySelector('#current');
-      current.innerHTML = right.innerHTML;
+  console.log('count:::::::::: ', count);
+  leftBtn.addEventListener('click', taskLeftBtn);
+  list.addEventListener('animationend', e => {
+    list.className = 'friends__list';
+    const right = document.querySelector('#right');
+    const current = document.querySelector('#current');
+    console.warn('right===', right);
+    console.warn('current===', current);
+    current.innerHTML = right.innerHTML;
+    leftBtn.addEventListener('click', taskLeftBtn);
+    setTimeout(async () => {
+      const currentArray = getCurrentArray();
+      const newArrayID = getNewCards(count, currentArray);
+      const newCards = await renderTemp(newArrayID, 'right');
+      console.log(newCards);
+      right.innerHTML = '';
+      right.append(...newCards);
     });
-    const currentCards = document.querySelectorAll('#current .friend-card');
-    const currentArray = [];
-    currentCards.forEach(elem => {
-      currentArray.push(+elem.id);
-    });
-    console.log('currentArray:::::', currentArray);
-    const newArray = getNewCards(count, currentArray);
-    console.log('newArray:::: ', newArray);
-    console.log('=========================');
-    const newCards = await renderList(newArray, 'right');
-    right.remove();
-    list.append(newCards);
   });
 };
 const onClickRightBtn = (list, count) => {
-  const rightBtn = document.querySelector('.pagination_right');
-  rightBtn.addEventListener('click', async () => {
-    list.classList.add('move_right');
-    list.addEventListener('animationend', () => {
-      list.className = 'friends__list';
-      const left = document.querySelector('#left');
-      const current = document.querySelector('#current');
-      current.innerHTML = left.innerHTML;
+  console.log('count:::::::::: ', count);
+  rightBtn.addEventListener('click', taskRightBtn);
+  list.addEventListener('animationend', e => {
+    list.className = 'friends__list';
+    const left = document.querySelector('#left');
+    const current = document.querySelector('#current');
+    current.innerHTML = left.innerHTML;
+    rightBtn.addEventListener('click', taskRightBtn);
+    setTimeout(async () => {
+      const currentArray = getCurrentArray();
+      const newArrayID = getNewCards(count, currentArray);
+      const newCards = await renderTemp(newArrayID, 'left');
+      console.log(newCards);
+      left.innerHTML = '';
+      left.append(...newCards);
     });
-    const currentCards = document.querySelectorAll('#current .friend-card');
-    const currentArray = [];
-    currentCards.forEach(elem => {
-      currentArray.push(+elem.id);
-    });
-    const newArray = getNewCards(count, currentArray);
-    const newCards = await renderList(newArray, 'left');
-    left.remove();
-    list.prepend(newCards);
   });
 };
-const controlSlider = async () => {
-  const currentPageWidth = document.body.offsetWidth;
-  let count;
-  if (currentPageWidth >= 1280) {
-    count = 3;
-  }
+
+// const onClickRightBtn = (list, count) => {
+
+//   rightBtn.addEventListener('click', async () => {
+
+//     list.classList.add('move_right990');    
+
+//     list.addEventListener('animationend', () => {
+//       list.className = 'friends__list';
+//       const left = document.querySelector('#left');
+//       const current = document.querySelector('#current');      
+//       current.innerHTML = left.innerHTML;
+//     })
+
+//     const currentCards = document.querySelectorAll('#current .friend-card');
+//       const currentArray = [];
+//       currentCards.forEach(elem => {
+//         currentArray.push(+elem.id)
+//       })
+
+//       const newArray = getNewCards(count, currentArray);
+//       const newCards = await renderList(newArray, 'left');
+//       const left = document.querySelector('#left');      
+//       left.remove();
+//       list.prepend(newCards);
+//   })
+// }
+
+const controlSlider = async count => {
+  console.log('count in controlSLIDER', count);
   const currentArray = getRandomArray(count);
+  console.log('currentArray: ', currentArray);
   const leftArray = getNewCards(count, currentArray);
+  console.log('leftArray: ', leftArray);
   const rightArray = getNewCards(count, currentArray);
+  console.log('rightArray: ', rightArray);
   const currentCards = await renderList(currentArray, 'current');
   const leftCards = await renderList(leftArray, 'left');
   const rightCards = await renderList(rightArray, 'right');
   const list = document.querySelector('.friends__list');
+  list.innerHTML = '';
   list.append(leftCards, currentCards, rightCards);
   onClickLeftBtn(list, count);
   onClickRightBtn(list, count);
-
-  // const leftItem = document.querySelector('.friends__item:first-child');
-  // const rightItem = document.querySelector('.friends__item:last-child');
-  // let currentItem = document.querySelector('.friends__item:nth-child(2');
-  // currentItem.innerHTML = '';
-  // currentItem.append(leftItem);
 };
-
 
 ;// CONCATENATED MODULE: ./src/script/index.js
 
@@ -274,12 +333,44 @@ const init = () => {
   //   controlBurger();    
   // } else {
   controlBurger();
-  controlSlider();
   controlPopup();
-
-  // }
+  let count;
+  const width = document.body.offsetWidth;
+  if (width > 1200) {
+    const list = document.querySelector('.friends__list');
+    list.style.left = '-1080px';
+    count = 3;
+  } else if (width > 500 && width <= 1200) {
+    const list = document.querySelector('.friends__list');
+    list.style.left = '-710px';
+    count = 2;
+  } else {
+    count = 1;
+  }
+  controlSlider(count);
+  const widthThreeCardsMediaQuery = window.matchMedia('(max-width: 1280px) and (min-width: 1200px)');
+  widthThreeCardsMediaQuery.addEventListener('change', e => {
+    if (widthThreeCardsMediaQuery.matches) {
+      const list = document.querySelector('.friends__list');
+      list.style.left = '-1080px';
+      controlSlider(3);
+    }
+  });
+  const widthTwoCardsMediaQuery = window.matchMedia('(max-width: 1200px) and (min-width: 600px)');
+  widthTwoCardsMediaQuery.addEventListener('change', e => {
+    if (widthTwoCardsMediaQuery.matches) {
+      const list = document.querySelector('.friends__list');
+      list.style.left = '-710px';
+      controlSlider(2);
+    }
+  });
+  const widthOneCardMediaQuery = window.matchMedia('(max-width: 600px) and (min-width: 320px)');
+  widthOneCardMediaQuery.addEventListener('change', e => {
+    if (widthOneCardMediaQuery.matches) {
+      controlSlider(1);
+    }
+  });
 };
-
 init();
 /******/ })()
 ;

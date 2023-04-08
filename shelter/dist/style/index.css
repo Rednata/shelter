@@ -908,7 +908,6 @@ body {
   background-color: #F6F6F6;
 }
 .friends__inner {
-  border: 1px solid red;
   position: relative;
 }
 .friends__wrap {
@@ -917,16 +916,11 @@ body {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid blue;
 }
-@media (max-width: 1279px) {
+@media (max-width: 1200px) {
   .friends__wrap {
-    justify-content: center;
-    gap: 20px;
-  }
-}
-@media (max-width: 1000px) {
-  .friends__wrap {
-    gap: 10px;
+    width: 700px;
   }
 }
 @media (max-width: 760px) {
@@ -953,8 +947,13 @@ body {
   display: flex;
   gap: 90px;
   justify-content: space-between;
-  width: 500px;
+  width: 100%;
   flex-wrap: nowrap;
+}
+@media (max-width: 1200px) {
+  .friends__list {
+    gap: 113px;
+  }
 }
 @media (max-width: 1000px) {
   .friends__list {
@@ -1113,15 +1112,15 @@ body {
   color: #292929;
 }
 
-.move_right {
-  animation: right 1s;
+.move_right990 {
+  animation: right990 1s;
 }
 
-.move_left {
-  animation: left 1s;
+.move_left990 {
+  animation: left990 1s;
 }
 
-@keyframes right {
+@keyframes right990 {
   from {
     left: -1080px;
   }
@@ -1129,12 +1128,60 @@ body {
     left: 0;
   }
 }
-@keyframes left {
+@keyframes left990 {
   from {
     left: -1080px;
   }
   to {
     left: -2070px;
+  }
+}
+.move_right700 {
+  animation: right700 1s;
+}
+
+.move_left700 {
+  animation: left700 1s;
+}
+
+@keyframes right700 {
+  from {
+    left: -710px;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes left700 {
+  from {
+    left: -710px;
+  }
+  to {
+    left: -1477px;
+  }
+}
+.move_right270 {
+  animation: right270 1s;
+}
+
+.move_left270 {
+  animation: left270 1s;
+}
+
+@keyframes right270 {
+  from {
+    left: -270px;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes left270 {
+  from {
+    left: -270px;
+  }
+  to {
+    left: -540px;
   }
 }
 .friend-card {

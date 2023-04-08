@@ -33,6 +33,12 @@ $color-dark-m: #B2B2B2;
 
 }
 
+@mixin desktop1200 {
+  @media(max-width: 1200px) {
+    @content;
+  }
+}
+
 @mixin desktop1279 {
   @media(max-width: 1279px) {
     @content;

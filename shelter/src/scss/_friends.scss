@@ -1,30 +1,21 @@
 .friends {
   background-color: $color-light-l;      
 
-  &__container {
- 
-  }
-
   &__inner {
-    border: 1px solid red;
+    // border: 1px solid red;
     position: relative;
   }
+
   &__wrap {    
     width: 990px;
-    margin-bottom: 60px;
-    // align-items: center;
-    // justify-content: space-between;    
+    margin-bottom: 60px;    
     overflow: hidden;   
     margin-left: auto;
     margin-right: auto;    
-    // border: 5px solid red;
+    border: 1px solid blue;
 
-    @include desktop1279 {
-      justify-content: center;
-      gap: 20px;
-    }
-    @include desktop1000 {      
-      gap: 10px;
+    @include desktop1200 {      
+      width: 700px;
     }
 
     @include tablet760 {      
@@ -53,12 +44,12 @@
     display: flex;
     gap: 90px;
     justify-content: space-between;
-    width: 500px;                    
+    width: 100%;              
     flex-wrap: nowrap;         
 
-    @include desktop1279 {
+    @include desktop1200 {
       // width: 700px;  
-      // gap: 11vw;
+        gap: 113px;
       // justify-content: center;
       // justify-content: flex-start;      
       
@@ -117,14 +108,7 @@
   }
 
   &_left {
-    // position: absolute;   
     left: 0; 
-    // transform: translateY(-50%);   
-    
-    @include desktop1279 {      
-      // transform: translateX(50px);
-    }
-
 
     @include tablet760 {
       // top: 80%;
@@ -269,22 +253,49 @@
   }
 }
 
-.move_right {
-  animation: right 1s;
-
+.move_right990 {
+  animation: right990 1s;
 }
-
-.move_left {
-  animation: left 1s;
-
+.move_left990 {
+  animation: left990 1s;
 }
-
-@keyframes right {
+@keyframes right990 {
   from {left: -1080px}
   to {left: 0}
 }
 
-@keyframes left {
+@keyframes left990 {
   from {left: -1080px}
   to {left: -2070px}
+}
+
+.move_right700 {
+  animation: right700 1s;
+}
+.move_left700 {
+  animation: left700 1s;
+}
+@keyframes right700 {
+  from {left: -710px}      
+  to {left: 0}
+}
+@keyframes left700 {
+  from {left: -710px}   
+  to {left: -1477px}
+}
+
+
+.move_right270 {
+  animation: right270 1s;
+}
+.move_left270 {
+  animation: left270 1s;
+}
+@keyframes right270 {
+  from {left: -270px}
+  to {left: 0}
+}
+@keyframes left270 {
+  from {left: -270px}
+  to {left: -540px}
 }
