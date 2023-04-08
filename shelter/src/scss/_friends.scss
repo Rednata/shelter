@@ -1,10 +1,37 @@
 .friends {
-  background-color: $color-light-l;  
+  background-color: $color-light-l;      
 
   &__container {
-    position: relative;    
-    // border: 1px solid red;    
+ 
   }
+
+  &__inner {
+    border: 1px solid red;
+    position: relative;
+  }
+  &__wrap {    
+    width: 990px;
+    margin-bottom: 60px;
+    // align-items: center;
+    // justify-content: space-between;    
+    overflow: hidden;   
+    margin-left: auto;
+    margin-right: auto;    
+    // border: 5px solid red;
+
+    @include desktop1279 {
+      justify-content: center;
+      gap: 20px;
+    }
+    @include desktop1000 {      
+      gap: 10px;
+    }
+
+    @include tablet760 {      
+      margin-bottom: 112px;
+    }
+  }
+
 
   &__title {
     max-width:  400px;
@@ -19,33 +46,43 @@
     }
   }
 
+  
   &__list {
+    position: relative;
+    left: -1080px;
     display: flex;
-    justify-content: space-evenly;
-    gap: 40px;
-    margin: 0 auto;
-    margin-bottom: 60px;
-    padding-left: 53px;
-    padding-right: 53px;     
-    // border: 1px solid red;
+    gap: 90px;
+    justify-content: space-between;
+    width: 500px;                    
+    flex-wrap: nowrap;         
 
-    @include desktop1100 {
-      max-width: 580px;
-      overflow-x: hidden;      
-      justify-content: flex-start;
-      padding: 0;
+    @include desktop1279 {
+      // width: 700px;  
+      // gap: 11vw;
+      // justify-content: center;
+      // justify-content: flex-start;      
+      
+    }
+    @include desktop1000 {
+      max-width: 580px;  
+      gap: 5.2vw;
+      // justify-content: flex-start;      
       
     }
 
-    @include tablet760 {      
-      margin-bottom: 112px;
-    }
 
-    @include tablet650 {      
+    @include tablet760 {      
       max-width: 270px;
+      justify-content: flex-start;
     }
   }
-  
+
+  &__item {
+    display: flex;  
+    gap: 90px;         
+    width: 990px;
+  }
+
   &__button {
     @include button(261px, 52px, $color-primary, $color-primary, 1px);
     display: flex;
@@ -57,6 +94,7 @@
 }
 
 .pagination {  
+  position: absolute;
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -67,6 +105,7 @@
   background-image: url("../img/Arrow.svg");
   background-color: transparent;
   transition: background-color 0.3s ease, border-color 0.3s ease;
+  top: 50%;  
 
   &:hover {
     background-color: $color-primary-light;
@@ -78,38 +117,48 @@
   }
 
   &_left {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-13%);    
+    // position: absolute;   
+    left: 0; 
+    // transform: translateY(-50%);   
+    
+    @include desktop1279 {      
+      // transform: translateX(50px);
+    }
+
 
     @include tablet760 {
-      top: 80%;
-      left: 30%;
+      // top: 80%;
+      // left: 30%;
     }
     @include mobile400 {
 
-      left: 21%;
+      // left: 21%;
     }
   }
 
   &_right {    
-    position: absolute;
-    top: 50%;
+    // position: absolute;    
     right: 0;
-    transform: rotate(180deg) translate(40px, 13%);
-    
-    @include tablet850 {
-      transform: rotate(180deg) translate(30px, 13%);
-    }
+    transform: rotate(180deg);
 
-    @include tablet760 {
-      top: 80%;
-      right: calc(30% - 30px);
-    }
-    @include mobile400 {
+    // @include desktop1279 {      
+    //   padding-left: 0;
+    //   padding-right: 0;
+    // }
+
+    
+    // @include tablet850 {
+    //   transform: rotate(180deg) translate(30px, 13%);
+    // }
+
+    // @include tablet760 {
+    //   top: 80%;
+    //   right: calc(30% - 30px);
+    // }
+    // @include mobile400 {
       
-      right: calc(21% - 30px);
-    }
+    //   right: calc(21% - 30px);
+    // }
   }
 }
 
@@ -218,4 +267,24 @@
     border-color: $color-primary;
     color: $color-dark-3xl;
   }
+}
+
+.move_right {
+  animation: right 1s;
+
+}
+
+.move_left {
+  animation: left 1s;
+
+}
+
+@keyframes right {
+  from {left: -1080px}
+  to {left: 0}
+}
+
+@keyframes left {
+  from {left: -1080px}
+  to {left: -2070px}
 }

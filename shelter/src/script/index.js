@@ -1,5 +1,6 @@
 import { controlBurger } from './modules/burger.js';
 import { controlPopup } from './modules/popup.js';
+import { controlSlider } from './modules/slider.js';
 
 const init = () => {
 
@@ -7,7 +8,9 @@ const init = () => {
   //   controlBurger();    
   // } else {
     controlBurger();  
+    controlSlider();
     controlPopup();
+    
   // }
   
 }

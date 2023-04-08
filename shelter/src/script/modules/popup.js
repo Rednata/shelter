@@ -5,10 +5,14 @@ const getFriendName = (target) => {
   return card.querySelector('.friend-card__title').textContent.trim();
 }
 
-const getFriendDescript = async (url, friendName) => {
+const getPetsData = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
-  return data.find(item => item.name === friendName);  
+  return data;  
+}
+
+const getPetDescript = (data, friendName) => {
+  return data.find(item => item.name === friendName)
 }
 
 const createInnerPopup = ({name, breed, descript, image}) => {
@@ -50,7 +54,10 @@ const controlPopup = () => {
     const friendName = getFriendName(target);
 
     const url = "../fonts/pets.json";
-    const descript = await getFriendDescript(url, friendName);
+    const data = await getPetsData(url, friendName);
+
+    const descript = getPetDescript(data, friendName);
+
     
     createInnerPopup(descript);
 
@@ -60,4 +67,4 @@ const controlPopup = () => {
 
 }
 
-export { controlPopup};
+export { controlPopup, getPetsData};

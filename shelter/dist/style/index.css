@@ -907,8 +907,32 @@ body {
 .friends {
   background-color: #F6F6F6;
 }
-.friends__container {
+.friends__inner {
+  border: 1px solid red;
   position: relative;
+}
+.friends__wrap {
+  width: 990px;
+  margin-bottom: 60px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1279px) {
+  .friends__wrap {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .friends__wrap {
+    gap: 10px;
+  }
+}
+@media (max-width: 760px) {
+  .friends__wrap {
+    margin-bottom: 112px;
+  }
 }
 .friends__title {
   max-width: 400px;
@@ -924,31 +948,30 @@ body {
   }
 }
 .friends__list {
+  position: relative;
+  left: -1080px;
   display: flex;
-  justify-content: space-evenly;
-  gap: 40px;
-  margin: 0 auto;
-  margin-bottom: 60px;
-  padding-left: 53px;
-  padding-right: 53px;
+  gap: 90px;
+  justify-content: space-between;
+  width: 500px;
+  flex-wrap: nowrap;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
   .friends__list {
     max-width: 580px;
-    overflow-x: hidden;
-    justify-content: flex-start;
-    padding: 0;
+    gap: 5.2vw;
   }
 }
 @media (max-width: 760px) {
   .friends__list {
-    margin-bottom: 112px;
+    max-width: 270px;
+    justify-content: flex-start;
   }
 }
-@media (max-width: 650px) {
-  .friends__list {
-    max-width: 270px;
-  }
+.friends__item {
+  display: flex;
+  gap: 90px;
+  width: 990px;
 }
 .friends__button {
   width: 261px;
@@ -969,6 +992,7 @@ body {
 }
 
 .pagination {
+  position: absolute;
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -979,6 +1003,7 @@ body {
   background-image: url("../img/Arrow.svg");
   background-color: transparent;
   transition: background-color 0.3s ease, border-color 0.3s ease;
+  top: 50%;
 }
 .pagination:hover {
   background-color: #FDDCC4;
@@ -989,42 +1014,11 @@ body {
   border-color: #F1CDB3;
 }
 .pagination_left {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-13%);
-}
-@media (max-width: 760px) {
-  .pagination_left {
-    top: 80%;
-    left: 30%;
-  }
-}
-@media (max-width: 400px) {
-  .pagination_left {
-    left: 21%;
-  }
+  left: 0;
 }
 .pagination_right {
-  position: absolute;
-  top: 50%;
   right: 0;
-  transform: rotate(180deg) translate(40px, 13%);
-}
-@media (max-width: 850px) {
-  .pagination_right {
-    transform: rotate(180deg) translate(30px, 13%);
-  }
-}
-@media (max-width: 760px) {
-  .pagination_right {
-    top: 80%;
-    right: calc(30% - 30px);
-  }
-}
-@media (max-width: 400px) {
-  .pagination_right {
-    right: calc(21% - 30px);
-  }
+  transform: rotate(180deg);
 }
 
 @media (max-width: 850px) {
@@ -1119,6 +1113,30 @@ body {
   color: #292929;
 }
 
+.move_right {
+  animation: right 1s;
+}
+
+.move_left {
+  animation: left 1s;
+}
+
+@keyframes right {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes left {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2070px;
+  }
+}
 .friend-card {
   display: flex;
   flex-direction: column;
@@ -1130,6 +1148,7 @@ body {
   width: 270px;
   flex-shrink: 0;
   transition: background-color 0.3s ease;
+  border: 1px solid red;
   cursor: pointer;
 }
 .friend-card:hover {
