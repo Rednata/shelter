@@ -908,6 +908,7 @@ body {
   background-color: #F6F6F6;
 }
 .friends__inner {
+  border: 1px solid transparent;
   position: relative;
 }
 .friends__wrap {
@@ -916,16 +917,20 @@ body {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid blue;
 }
 @media (max-width: 1200px) {
   .friends__wrap {
-    width: 700px;
+    width: 580px;
   }
 }
 @media (max-width: 760px) {
   .friends__wrap {
     margin-bottom: 112px;
+  }
+}
+@media (max-width: 650px) {
+  .friends__wrap {
+    width: 270px;
   }
 }
 .friends__title {
@@ -946,31 +951,27 @@ body {
   left: -1080px;
   display: flex;
   gap: 90px;
-  justify-content: space-between;
   width: 100%;
   flex-wrap: nowrap;
 }
 @media (max-width: 1200px) {
   .friends__list {
-    gap: 113px;
+    gap: 40px;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 650px) {
   .friends__list {
-    max-width: 580px;
-    gap: 5.2vw;
-  }
-}
-@media (max-width: 760px) {
-  .friends__list {
-    max-width: 270px;
-    justify-content: flex-start;
+    gap: 0;
   }
 }
 .friends__item {
   display: flex;
   gap: 90px;
-  width: 990px;
+}
+@media (max-width: 1200px) {
+  .friends__item {
+    gap: 40px;
+  }
 }
 .friends__button {
   width: 261px;
@@ -1002,7 +1003,7 @@ body {
   background-image: url("../img/Arrow.svg");
   background-color: transparent;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  top: 50%;
+  top: calc(50% - 30px);
 }
 .pagination:hover {
   background-color: #FDDCC4;
@@ -1014,10 +1015,53 @@ body {
 }
 .pagination_left {
   left: 0;
+  transform: translateY(-50%);
+}
+@media (max-width: 1200px) {
+  .pagination_left {
+    left: 5vw;
+  }
+}
+@media (max-width: 1000px) {
+  .pagination_left {
+    left: 0;
+  }
+}
+@media (max-width: 760px) {
+  .pagination_left {
+    top: 87%;
+    left: 32%;
+  }
+}
+@media (max-width: 400px) {
+  .pagination_left {
+    left: 20%;
+  }
 }
 .pagination_right {
   right: 0;
-  transform: rotate(180deg);
+  transform: rotate(180deg) translateY(50%);
+}
+@media (max-width: 1200px) {
+  .pagination_right {
+    right: 5vw;
+  }
+}
+@media (max-width: 1000px) {
+  .pagination_right {
+    right: 0;
+  }
+}
+@media (max-width: 760px) {
+  .pagination_right {
+    top: 87%;
+    right: 32%;
+  }
+}
+@media (max-width: 400px) {
+  .pagination_right {
+    right: 20%;
+  }
 }
 
 @media (max-width: 850px) {
@@ -1146,7 +1190,7 @@ body {
 
 @keyframes right700 {
   from {
-    left: -710px;
+    left: -620px;
   }
   to {
     left: 0;
@@ -1154,10 +1198,10 @@ body {
 }
 @keyframes left700 {
   from {
-    left: -710px;
+    left: -620px;
   }
   to {
-    left: -1477px;
+    left: -1240px;
   }
 }
 .move_right270 {
@@ -1195,7 +1239,6 @@ body {
   width: 270px;
   flex-shrink: 0;
   transition: background-color 0.3s ease;
-  border: 1px solid red;
   cursor: pointer;
 }
 .friend-card:hover {

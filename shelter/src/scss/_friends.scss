@@ -2,7 +2,7 @@
   background-color: $color-light-l;      
 
   &__inner {
-    // border: 1px solid red;
+    border: 1px solid transparent;
     position: relative;
   }
 
@@ -11,15 +11,18 @@
     margin-bottom: 60px;    
     overflow: hidden;   
     margin-left: auto;
-    margin-right: auto;    
-    border: 1px solid blue;
+    margin-right: auto;        
 
     @include desktop1200 {      
-      width: 700px;
+      width: 580px;
+
     }
 
     @include tablet760 {      
       margin-bottom: 112px;
+    }
+    @include tablet650 {      
+      width: 270px;
     }
   }
 
@@ -37,41 +40,30 @@
     }
   }
 
-  
   &__list {
     position: relative;
     left: -1080px;
     display: flex;
     gap: 90px;
-    justify-content: space-between;
     width: 100%;              
     flex-wrap: nowrap;         
 
     @include desktop1200 {
-      // width: 700px;  
-        gap: 113px;
-      // justify-content: center;
-      // justify-content: flex-start;      
-      
+        gap: 40px;
     }
-    @include desktop1000 {
-      max-width: 580px;  
-      gap: 5.2vw;
-      // justify-content: flex-start;      
-      
-    }
-
-
-    @include tablet760 {      
-      max-width: 270px;
-      justify-content: flex-start;
+    
+    @include tablet650 {
+      gap: 0;
     }
   }
 
   &__item {
     display: flex;  
     gap: 90px;         
-    width: 990px;
+
+    @include desktop1200 {
+      gap: 40px;
+    }
   }
 
   &__button {
@@ -96,7 +88,7 @@
   background-image: url("../img/Arrow.svg");
   background-color: transparent;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  top: 50%;  
+  top: calc(50% - 30px);   // половина от magrin-bottom
 
   &:hover {
     background-color: $color-primary-light;
@@ -108,41 +100,43 @@
   }
 
   &_left {
-    left: 0; 
+    left: 0;   
+    transform: translateY(-50%);
+
+    @include desktop1200 {
+      left: 5vw;
+    }
+    @include desktop1000 {
+      left: 0
+    }
 
     @include tablet760 {
-      // top: 80%;
-      // left: 30%;
+      top: 87%;
+      left: 32%;
     }
     @include mobile400 {
-
-      // left: 21%;
+      left: 20%;      
     }
   }
 
   &_right {    
-    // position: absolute;    
-    right: 0;
-    transform: rotate(180deg);
+    right: 0;    
+    transform: rotate(180deg) translateY(50%);
 
-    // @include desktop1279 {      
-    //   padding-left: 0;
-    //   padding-right: 0;
-    // }
+    @include desktop1200 {
+      right: 5vw;
+    }
+    @include desktop1000 {
+      right: 0
+    }
 
-    
-    // @include tablet850 {
-    //   transform: rotate(180deg) translate(30px, 13%);
-    // }
-
-    // @include tablet760 {
-    //   top: 80%;
-    //   right: calc(30% - 30px);
-    // }
-    // @include mobile400 {
-      
-    //   right: calc(21% - 30px);
-    // }
+    @include tablet760 {
+      top: 87%;
+      right: 32%;
+    }
+    @include mobile400 {
+      right: 20%;      
+    }
   }
 }
 
@@ -276,12 +270,12 @@
   animation: left700 1s;
 }
 @keyframes right700 {
-  from {left: -710px}      
+  from {left: -620px}      
   to {left: 0}
 }
 @keyframes left700 {
-  from {left: -710px}   
-  to {left: -1477px}
+  from {left: -620px}   
+  to {left: -1240px}
 }
 
 

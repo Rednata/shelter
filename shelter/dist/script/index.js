@@ -210,7 +210,7 @@ const taskLeftBtn = () => {
   console.log(width1);
   if (width > 1200) {
     list.classList.add('move_left990');
-  } else if (width <= 500) {
+  } else if (width <= 650) {
     list.classList.add('move_left270');
   } else {
     list.classList.add('move_left700');
@@ -223,7 +223,7 @@ const taskRightBtn = () => {
   console.log(width1);
   if (width > 1200) {
     list.classList.add('move_right990');
-  } else if (width <= 500) {
+  } else if (width <= 650) {
     list.classList.add('move_right270');
   } else {
     list.classList.add('move_right700');
@@ -238,74 +238,36 @@ const getCurrentArray = () => {
   });
   return currentArray;
 };
-const onClickLeftBtn = (list, count) => {
-  console.log('count:::::::::: ', count);
-  leftBtn.addEventListener('click', taskLeftBtn);
-  list.addEventListener('animationend', e => {
+const moveSlider = (list, count) => {
+  list.addEventListener('animationend', async e => {
     list.className = 'friends__list';
-    const right = document.querySelector('#right');
-    const current = document.querySelector('#current');
-    console.warn('right===', right);
-    console.warn('current===', current);
-    current.innerHTML = right.innerHTML;
-    leftBtn.addEventListener('click', taskLeftBtn);
-    setTimeout(async () => {
+    if (e.animationName.slice(0, 4) === 'left') {
+      const right = document.querySelector('#right');
+      const current = document.querySelector('#current');
+      console.warn('right===', right);
+      console.warn('current===', current);
+      current.innerHTML = right.innerHTML;
+      leftBtn.addEventListener('click', taskLeftBtn);
       const currentArray = getCurrentArray();
       const newArrayID = getNewCards(count, currentArray);
       const newCards = await renderTemp(newArrayID, 'right');
       console.log(newCards);
       right.innerHTML = '';
       right.append(...newCards);
-    });
-  });
-};
-const onClickRightBtn = (list, count) => {
-  console.log('count:::::::::: ', count);
-  rightBtn.addEventListener('click', taskRightBtn);
-  list.addEventListener('animationend', e => {
-    list.className = 'friends__list';
-    const left = document.querySelector('#left');
-    const current = document.querySelector('#current');
-    current.innerHTML = left.innerHTML;
-    rightBtn.addEventListener('click', taskRightBtn);
-    setTimeout(async () => {
+    } else {
+      const left = document.querySelector('#left');
+      const current = document.querySelector('#current');
+      current.innerHTML = left.innerHTML;
+      rightBtn.addEventListener('click', taskRightBtn);
       const currentArray = getCurrentArray();
       const newArrayID = getNewCards(count, currentArray);
       const newCards = await renderTemp(newArrayID, 'left');
       console.log(newCards);
       left.innerHTML = '';
       left.append(...newCards);
-    });
+    }
   });
 };
-
-// const onClickRightBtn = (list, count) => {
-
-//   rightBtn.addEventListener('click', async () => {
-
-//     list.classList.add('move_right990');    
-
-//     list.addEventListener('animationend', () => {
-//       list.className = 'friends__list';
-//       const left = document.querySelector('#left');
-//       const current = document.querySelector('#current');      
-//       current.innerHTML = left.innerHTML;
-//     })
-
-//     const currentCards = document.querySelectorAll('#current .friend-card');
-//       const currentArray = [];
-//       currentCards.forEach(elem => {
-//         currentArray.push(+elem.id)
-//       })
-
-//       const newArray = getNewCards(count, currentArray);
-//       const newCards = await renderList(newArray, 'left');
-//       const left = document.querySelector('#left');      
-//       left.remove();
-//       list.prepend(newCards);
-//   })
-// }
-
 const controlSlider = async count => {
   console.log('count in controlSLIDER', count);
   const currentArray = getRandomArray(count);
@@ -320,8 +282,9 @@ const controlSlider = async count => {
   const list = document.querySelector('.friends__list');
   list.innerHTML = '';
   list.append(leftCards, currentCards, rightCards);
-  onClickLeftBtn(list, count);
-  onClickRightBtn(list, count);
+  leftBtn.addEventListener('click', taskLeftBtn);
+  rightBtn.addEventListener('click', taskRightBtn);
+  moveSlider(list, count);
 };
 
 ;// CONCATENATED MODULE: ./src/script/index.js
@@ -340,15 +303,17 @@ const init = () => {
     const list = document.querySelector('.friends__list');
     list.style.left = '-1080px';
     count = 3;
-  } else if (width > 500 && width <= 1200) {
+  } else if (width > 650 && width <= 1200) {
     const list = document.querySelector('.friends__list');
-    list.style.left = '-710px';
+    list.style.left = '-620px';
     count = 2;
   } else {
+    const list = document.querySelector('.friends__list');
+    list.style.left = '-270px';
     count = 1;
   }
   controlSlider(count);
-  const widthThreeCardsMediaQuery = window.matchMedia('(max-width: 1280px) and (min-width: 1200px)');
+  const widthThreeCardsMediaQuery = window.matchMedia('(min-width: 1200px)');
   widthThreeCardsMediaQuery.addEventListener('change', e => {
     if (widthThreeCardsMediaQuery.matches) {
       const list = document.querySelector('.friends__list');
@@ -356,17 +321,19 @@ const init = () => {
       controlSlider(3);
     }
   });
-  const widthTwoCardsMediaQuery = window.matchMedia('(max-width: 1200px) and (min-width: 600px)');
+  const widthTwoCardsMediaQuery = window.matchMedia('(max-width: 1200px) and (min-width: 650px)');
   widthTwoCardsMediaQuery.addEventListener('change', e => {
     if (widthTwoCardsMediaQuery.matches) {
       const list = document.querySelector('.friends__list');
-      list.style.left = '-710px';
+      list.style.left = '-620px';
       controlSlider(2);
     }
   });
-  const widthOneCardMediaQuery = window.matchMedia('(max-width: 600px) and (min-width: 320px)');
+  const widthOneCardMediaQuery = window.matchMedia('(max-width: 650px) and (min-width: 320px)');
   widthOneCardMediaQuery.addEventListener('change', e => {
     if (widthOneCardMediaQuery.matches) {
+      const list = document.querySelector('.friends__list');
+      list.style.left = '-270px';
       controlSlider(1);
     }
   });

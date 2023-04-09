@@ -99,7 +99,7 @@ const taskLeftBtn = () => {
   console.log(width1);
   if (width > 1200) {
     list.classList.add('move_left990')
-  } else if (width <= 500) {
+  } else if (width <= 650) {
     list.classList.add('move_left270');      
   } else  {
     list.classList.add('move_left700');      
@@ -113,7 +113,7 @@ const taskRightBtn = () => {
   console.log(width1);
   if (width > 1200) {
     list.classList.add('move_right990')
-  } else if (width <= 500) {
+  } else if (width <= 650) {
     list.classList.add('move_right270');      
   } else  {
     list.classList.add('move_right700');      
@@ -130,45 +130,33 @@ const getCurrentArray = () => {
   return currentArray    
 }
 
-const onClickLeftBtn = (list, count) => {
-  console.log('count:::::::::: ', count);
+const moveSlider = (list, count) => {  
 
-  leftBtn.addEventListener('click', taskLeftBtn) 
-
-  list.addEventListener('animationend', (e) => {
+  list.addEventListener('animationend', async (e) => {
     list.className = 'friends__list';              
-    const right = document.querySelector('#right');
-    const current = document.querySelector('#current'); 
-    console.warn('right===', right);    
-    console.warn('current===', current);
-    current.innerHTML = right.innerHTML;            
-    leftBtn.addEventListener('click', taskLeftBtn)        
 
-    setTimeout( async() => {
+    if (e.animationName.slice(0, 4) === 'left') {
+      const right = document.querySelector('#right');
+      const current = document.querySelector('#current'); 
+      console.warn('right===', right);    
+      console.warn('current===', current);
+      current.innerHTML = right.innerHTML;            
+      leftBtn.addEventListener('click', taskLeftBtn)        
+            
       const currentArray = getCurrentArray();
       const newArrayID = getNewCards(count, currentArray);      
       const newCards = await renderTemp(newArrayID, 'right');      
       
       console.log(newCards);
       right.innerHTML = '';
-      right.append(...newCards)
-    })
-  });
-}
+      right.append(...newCards)      
 
-const onClickRightBtn = (list, count) => {
-  console.log('count:::::::::: ', count);
-
-  rightBtn.addEventListener('click', taskRightBtn) 
-
-  list.addEventListener('animationend', (e) => {
-    list.className = 'friends__list';              
-    const left = document.querySelector('#left');
-    const current = document.querySelector('#current');     
-    current.innerHTML = left.innerHTML;            
-    rightBtn.addEventListener('click', taskRightBtn)        
-
-    setTimeout( async() => {
+    } else {
+      const left = document.querySelector('#left');
+      const current = document.querySelector('#current');     
+      current.innerHTML = left.innerHTML;            
+      rightBtn.addEventListener('click', taskRightBtn)        
+      
       const currentArray = getCurrentArray();
       const newArrayID = getNewCards(count, currentArray);      
       const newCards = await renderTemp(newArrayID, 'left');      
@@ -176,37 +164,10 @@ const onClickRightBtn = (list, count) => {
       console.log(newCards);
       left.innerHTML = '';
       left.append(...newCards)
-    })
+
+    }
   });
 }
-
-// const onClickRightBtn = (list, count) => {
-  
-
-//   rightBtn.addEventListener('click', async () => {
-
-//     list.classList.add('move_right990');    
-    
-//     list.addEventListener('animationend', () => {
-//       list.className = 'friends__list';
-//       const left = document.querySelector('#left');
-//       const current = document.querySelector('#current');      
-//       current.innerHTML = left.innerHTML;
-//     })
-
-//     const currentCards = document.querySelectorAll('#current .friend-card');
-//       const currentArray = [];
-//       currentCards.forEach(elem => {
-//         currentArray.push(+elem.id)
-//       })
-
-//       const newArray = getNewCards(count, currentArray);
-//       const newCards = await renderList(newArray, 'left');
-//       const left = document.querySelector('#left');      
-//       left.remove();
-//       list.prepend(newCards);
-//   })
-// }
 
 const controlSlider = async (count) => {
   console.log('count in controlSLIDER', count);
@@ -227,8 +188,11 @@ const controlSlider = async (count) => {
       
   list.append(leftCards, currentCards, rightCards);  
     
-  onClickLeftBtn(list, count);
-  onClickRightBtn(list, count);
+  leftBtn.addEventListener('click', taskLeftBtn) ;
+  rightBtn.addEventListener('click', taskRightBtn) 
+
+  moveSlider(list, count);
+  
 
 
 }
