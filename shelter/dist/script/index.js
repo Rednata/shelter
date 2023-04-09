@@ -86,17 +86,39 @@ const createInnerPopup = ({
   name,
   breed,
   descript,
-  image
+  image,
+  age,
+  inoculations,
+  diseases,
+  parasites
 }) => {
   const popupContent = document.querySelector('.popup__content');
   const title = popupContent.querySelector('.popup__title');
   const subtitle = popupContent.querySelector('.popup__subtitle');
   const text = popupContent.querySelector('.popup__text');
   const img = document.querySelector('.popup__img>img');
+  const ageElem = document.querySelector('.age');
+  const inocul = document.querySelector('.inocul');
+  const diseasElem = document.querySelector('.diseas');
+  const paras = document.querySelector('.parasite');
   img.src = image;
   title.textContent = name;
   subtitle.textContent = breed;
   text.textContent = descript;
+  ageElem.textContent = age;
+  inocul.textContent = inoculations;
+  diseasElem.textContent = diseases;
+  paras.textContent = parasites;
+  const inoculWidth = inocul.offsetWidth;
+  const inoculParentWudth = inocul.parentElement.offsetWidth;
+  const inoculSiblingWidth = inocul.previousElementSibling.offsetWidth;
+  if (inoculWidth + inoculSiblingWidth > inoculParentWudth) {
+    inocul.parentElement.classList.add('li_column');
+    inocul.classList.add('value_paddingLeft');
+  } else {
+    inocul.parentElement.classList.remove('li_column');
+    inocul.classList.remove('value_paddingLeft');
+  }
 };
 const showPopup = () => {
   popup.classList.add('overlay-popup_active');

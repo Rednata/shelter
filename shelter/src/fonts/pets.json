@@ -7,9 +7,9 @@
     "image": "../img/modal/jennifer.png",
     "imageSlider": "../img/pets-jennifer.jpg",
     "age": "2 months",
-    "inoculations": ["none"],
-    "diseases": ["none"],
-    "parasites": ["none"]
+    "inoculations": "none",
+    "diseases": "none",
+    "parasites": "none"
   },
   {
     "id": "1",
@@ -19,9 +19,9 @@
     "image": "../img/modal/sophia.png",
     "imageSlider": "../img/pets-sophia.png",
     "age": "1 month",
-    "inoculations": ["parvovirus"],
-    "diseases": ["none"],
-    "parasites": ["none"]
+    "inoculations": "parvovirus",
+    "diseases": "none",
+    "parasites": "none"
   },
   {
     "id": "2",
@@ -31,9 +31,9 @@
     "image": "../img/modal/woody.png",
     "imageSlider": "../img/pets-woody.jpg",
     "age": "3 years 6 months",
-    "inoculations": ["adenovirus", "distemper"],
-    "diseases": ["right back leg mobility reduced"],
-    "parasites": ["none"]
+    "inoculations": "adenovirus, distemper",
+    "diseases": "right back leg mobility reduced",
+    "parasites": "none"
   },
   {
     "id": "3",
@@ -43,9 +43,9 @@
     "image": "../img/modal/scarlett.png",
     "imageSlider": "../img/pets-scarlet.png",
     "age": "3 months",
-    "inoculations": ["parainfluenza"],
-    "diseases": ["none"],
-    "parasites": ["none"]
+    "inoculations": "parainfluenza",
+    "diseases": "none",
+    "parasites": "none"
   },
   {
     "id": "4",
@@ -55,9 +55,9 @@
     "image": "../img/modal/katrine.png",
     "imageSlider": "../img/pets-katrine.jpg",
     "age": "6 months",
-    "inoculations": ["panleukopenia"],
-    "diseases": ["none"],
-    "parasites": ["none"]
+    "inoculations": "panleukopenia",
+    "diseases": "none",
+    "parasites": "none"
   },
   {
     "id": "5",
@@ -67,9 +67,9 @@
     "image": "../img/modal/timmy.png",
     "imageSlider": "../img/pets-timmy.png",
     "age": "2 years 3 months",
-    "inoculations": ["calicivirus", "viral rhinotracheitis"],
-    "diseases": ["kidney stones"],
-    "parasites": ["none"]
+    "inoculations": "calicivirus, viral rhinotracheitis",
+    "diseases": "kidney stones",
+    "parasites": "none"
   },
   {
     "id": "6",
@@ -79,9 +79,9 @@
     "image": "../img/modal/freddie.png",
     "imageSlider": "../img/pets-freddie.png",
     "age": "2 months",
-    "inoculations": ["rabies"],
-    "diseases": ["none"],
-    "parasites": ["none"]
+    "inoculations": "rabies",
+    "diseases": "none",
+    "parasites": "none"
   },
   {
     "id": "7",
@@ -91,8 +91,8 @@
     "image": "../img/modal/charly.png",
     "imageSlider": "../img/pets-charly.png",
     "age": "8 years",
-    "inoculations": ["bordetella bronchiseptica", "leptospirosis"],
-    "diseases": ["deafness", "blindness"],
-    "parasites": ["lice", "fleas"]
+    "inoculations": "bordetella bronchiseptica, leptospirosis",
+    "diseases": "deafness, blindness",
+    "parasites": "lice, fleas"
   }
 ]

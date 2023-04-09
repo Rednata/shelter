@@ -2111,7 +2111,7 @@ body {
 }
 .popup__li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 .popup__li:not(:last-child) {
@@ -2128,7 +2128,14 @@ body {
     letter-spacing: 2px;
   }
 }
-.popup__li:before {
+.popup__key {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+.popup__key:before {
   content: "";
   display: block;
   width: 4px;
@@ -2136,11 +2143,18 @@ body {
   border-radius: 50%;
   background-color: #F1CDB3;
 }
-.popup__key {
-  font-weight: 700;
-  font-size: 15px;
-}
 .popup__value {
   font-size: 15px;
+  text-align: left;
+  letter-spacing: 0;
+}
+
+.li_column {
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.value_paddingLeft {
+  padding-left: 10px;
 }
 /*# sourceMappingURL=../maps/index.css.map */
