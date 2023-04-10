@@ -4,12 +4,12 @@
   gap: 30px;
   text-align: center;
   background-color: $color-light-s;  
+  background-color: tomato;
   border-radius: 9px;   
   padding-bottom: 30px;  
   width: 270px;
   flex-shrink: 0;  
-  transition: background-color 0.3s ease;
-  // border: 1px solid red;
+  transition: background-color 0.3s ease;  
   cursor: pointer;
 
   &:hover{

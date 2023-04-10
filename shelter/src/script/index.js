@@ -1,13 +1,28 @@
 
 import { controlBurger } from './modules/burger.js';
+import { controlPagination } from './modules/pagination.js';
 import { controlPopup } from './modules/popup.js';
 import { controlSlider } from './modules/slider.js';
 
 const init = () => {
 
-  // if (document.location.pathname === '/pets.html') {
-  //   controlBurger();    
-  // } else {
+  if (document.location.pathname === '/pets.html') {
+    controlBurger();    
+    // controlPopup();
+    // controlPagination();
+    let cards;
+    const width = document.body.offsetWidth;
+    if (width >= 1280) {
+      cards = 8
+        } else if (width > 650 && width <= 1200) {
+      
+        } else {
+      
+        }        
+    controlPagination(cards);
+
+
+  } else {
     controlBurger();  
     
     controlPopup();
@@ -59,7 +74,7 @@ const init = () => {
           controlSlider(1);
         }      
       })  
-  
+    }
 }
 
 init();
