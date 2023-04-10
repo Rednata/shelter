@@ -5,7 +5,6 @@ let flagOpen = true;
 
 const coloredLightBtn = () => {
   const petsBtnMenu = document.querySelectorAll('.menu-btn__dash_pets');
-  console.log(petsBtnMenu);
   petsBtnMenu.forEach(dash => {
     dash.classList.add('menu-btn__dash_pets-active')        
   })
@@ -13,7 +12,6 @@ const coloredLightBtn = () => {
 
 const coloredDarkBtn = () => {
   const petsBtnMenu = document.querySelectorAll('.menu-btn__dash_pets');
-  console.log(petsBtnMenu);
   petsBtnMenu.forEach(dash => {
     dash.classList.remove('menu-btn__dash_pets-active')        
   })

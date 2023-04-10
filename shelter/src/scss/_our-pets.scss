@@ -1,5 +1,4 @@
 .pets {
-
   @include tablet850 {
     padding-bottom: 77px;
   }
@@ -35,8 +34,7 @@
       max-height: 1368px;
       max-width: 850px;
       overflow-y: hidden;            
-      justify-content: space-evenly;
-      border: 1px solid red;
+      justify-content: space-evenly;      
     }
 
     @include tablet850 {
@@ -98,7 +96,7 @@
   }
 }
 
-.pagination-group {
+.pagination-group {  
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -108,8 +106,5 @@
   }
 }
 
-.pagin_active {
-
-}
 
 

@@ -5,12 +5,16 @@ import { controlPopup } from './modules/popup.js';
 import { controlSlider } from './modules/slider.js';
 import { getShuffleArray, getArray8, getArray6, getArray3 } from './modules/shuffle.js';
 
-
+console.log(`
+  =====================================
+  Не реализована пагинация при изменении размера страницы.  
+  =====================================
+`)
 const init = () => {
   
   if (document.location.pathname === '/pets.html') {    
     controlBurger();    
-    // controlPopup();
+    controlPopup();
  
     const arrPagination = getShuffleArray();
     const arrPagination8 = getArray8(arrPagination);

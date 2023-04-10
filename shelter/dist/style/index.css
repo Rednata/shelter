@@ -1142,7 +1142,6 @@ body {
   gap: 30px;
   text-align: center;
   background-color: #FAFAFA;
-  background-color: tomato;
   border-radius: 9px;
   padding-bottom: 30px;
   width: 270px;
@@ -1832,7 +1831,6 @@ body {
     max-width: 850px;
     overflow-y: hidden;
     justify-content: space-evenly;
-    border: 1px solid red;
   }
 }
 @media (max-width: 850px) {

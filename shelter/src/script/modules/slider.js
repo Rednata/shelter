@@ -23,7 +23,7 @@ const getRandomArray = (count, currentArray) => {
       if (!isIDInArray(currentArray, id)) {
         currentArray.push(id);
       }   
-      console.log(currentArray);   
+      // console.log(currentArray);   
     }     
     return currentArray
 
@@ -90,7 +90,7 @@ const renderTemp = async (arr, id) => {
 const getNewCards = (count, arr) => {
   const tempArr = [...arr];
   const t = getRandomArray(count * 2, tempArr);
-  console.log(t);
+  // console.log(t);
   
   const nextArray =  t.splice(count, count);
   return nextArray;
@@ -169,11 +169,11 @@ const moveSlider = (list, count) => {
 const controlSlider = async (count) => {  
 
   const currentArray = getRandomArray(count);
-  console.log('currentArray: ', currentArray);
+  // console.log('currentArray: ', currentArray);
   const leftArray = getNewCards(count, currentArray);
-  console.log('leftArray: ', leftArray);
+  // console.log('leftArray: ', leftArray);
   const rightArray = getNewCards(count, currentArray);
-  console.log('rightArray: ', rightArray);
+  // console.log('rightArray: ', rightArray);
 
   const currentCards = await renderList(currentArray, 'current');
   const leftCards = await  renderList(leftArray, 'left');

@@ -9,14 +9,12 @@ const overlay = document.querySelector('.overlay');
 let flagOpen = true;
 const coloredLightBtn = () => {
   const petsBtnMenu = document.querySelectorAll('.menu-btn__dash_pets');
-  console.log(petsBtnMenu);
   petsBtnMenu.forEach(dash => {
     dash.classList.add('menu-btn__dash_pets-active');
   });
 };
 const coloredDarkBtn = () => {
   const petsBtnMenu = document.querySelectorAll('.menu-btn__dash_pets');
-  console.log(petsBtnMenu);
   petsBtnMenu.forEach(dash => {
     dash.classList.remove('menu-btn__dash_pets-active');
   });
@@ -140,7 +138,7 @@ const closePopup = () => {
   });
 };
 const controlPopup = () => {
-  const friends = document.querySelector('.friends__list') || document.querySelector('.pets');
+  const friends = document.querySelector('.friends__list') || document.querySelector('.pets__list');
   friends.addEventListener('click', async ({
     target
   }) => {
@@ -188,7 +186,6 @@ const renderPetsList = async arr => {
 const onClickRightBtn = arr => {
   RIGHTbtn.addEventListener('click', () => {
     let activePageNumber = +ACTIVEbtn.textContent;
-    console.log(arr[activePageNumber]);
     RIGHTbtn.disabled = false;
     LEFTbtn.disabled = false;
     ENDbtn.disabled = false;
@@ -205,7 +202,6 @@ const onClickRightBtn = arr => {
 const onClickLeftBtn = arr => {
   LEFTbtn.addEventListener('click', () => {
     let activePageNumber = +ACTIVEbtn.textContent;
-    console.log(arr[activePageNumber - 2]);
     LEFTbtn.disabled = false;
     RIGHTbtn.disabled = false;
     ENDbtn.disabled = false;
@@ -221,19 +217,16 @@ const onClickLeftBtn = arr => {
 const onClickEndBtn = arr => {
   ENDbtn.addEventListener('mousedown', () => {
     renderPetsList(arr[arr.length - 1]);
-    console.log(arr[arr.length - 1]);
     RIGHTbtn.disabled = true;
     LEFTbtn.disabled = false;
     ACTIVEbtn.textContent = arr.length;
     ENDbtn.disabled = true;
     STARTbtn.disabled = false;
-    console.log('++');
   });
 };
 const onClickStartBtn = arr => {
   STARTbtn.addEventListener('mousedown', () => {
     renderPetsList(arr[0]);
-    console.log(arr[0]);
     RIGHTbtn.disabled = false;
     LEFTbtn.disabled = true;
     ACTIVEbtn.textContent = 1;
@@ -242,9 +235,7 @@ const onClickStartBtn = arr => {
   });
 };
 const controlPagination = async (arr, count) => {
-  console.log(arr);
   if (ACTIVEbtn.textContent == 1) {
-    console.warn('============');
     LEFTbtn.disabled = true;
     STARTbtn.disabled = true;
   }
@@ -274,8 +265,9 @@ const getRandomArray = (count, currentArray) => {
       if (!isIDInArray(currentArray, id)) {
         currentArray.push(id);
       }
-      console.log(currentArray);
+      // console.log(currentArray);   
     }
+
     return currentArray;
   } else {
     while (currentArray.length < count) {
@@ -326,7 +318,8 @@ const renderTemp = async (arr, id) => {
 const getNewCards = (count, arr) => {
   const tempArr = [...arr];
   const t = getRandomArray(count * 2, tempArr);
-  console.log(t);
+  // console.log(t);
+
   const nextArray = t.splice(count, count);
   return nextArray;
 };
@@ -390,11 +383,12 @@ const moveSlider = (list, count) => {
 };
 const controlSlider = async count => {
   const currentArray = getRandomArray(count);
-  console.log('currentArray: ', currentArray);
+  // console.log('currentArray: ', currentArray);
   const leftArray = getNewCards(count, currentArray);
-  console.log('leftArray: ', leftArray);
+  // console.log('leftArray: ', leftArray);
   const rightArray = getNewCards(count, currentArray);
-  console.log('rightArray: ', rightArray);
+  // console.log('rightArray: ', rightArray);
+
   const currentCards = await renderList(currentArray, 'current');
   const leftCards = await renderList(leftArray, 'left');
   const rightCards = await renderList(rightArray, 'right');
@@ -543,11 +537,15 @@ const getArray3 = arr => {
 
 
 
+console.log(`
+  =====================================
+  Не реализована пагинация при изменении размера страницы.  
+  =====================================
+`);
 const init = () => {
   if (document.location.pathname === '/pets.html') {
     controlBurger();
-    // controlPopup();
-
+    controlPopup();
     const arrPagination = getShuffleArray();
     const arrPagination8 = getArray8(arrPagination);
     const arrPagination6 = getArray6(arrPagination);

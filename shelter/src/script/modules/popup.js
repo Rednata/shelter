@@ -70,7 +70,7 @@ const closePopup = () => {
 }
 
 const controlPopup = () => {
-  const friends = document.querySelector('.friends__list') || document.querySelector('.pets');
+  const friends = document.querySelector('.friends__list') || document.querySelector('.pets__list');  
   friends.addEventListener('click', async ({target}) => {
     const friendName = getFriendName(target);
 
