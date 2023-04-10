@@ -33,17 +33,17 @@ const renderPetsList = async(arr) => {
   PETS.append(...data);  
 }
 
-const onClickRightBtn = (arr8) => {
+const onClickRightBtn = (arr) => {
   RIGHTbtn.addEventListener('click', () => {    
     let activePageNumber = +ACTIVEbtn.textContent;    
     
-    console.log(arr8[activePageNumber]);
+    console.log(arr[activePageNumber]);
 
     RIGHTbtn.disabled = false;
     LEFTbtn.disabled = false;
     ENDbtn.disabled = false;
     STARTbtn.disabled = false;
-    renderPetsList(arr8[activePageNumber]);
+    renderPetsList(arr[activePageNumber]);
     ACTIVEbtn.textContent = activePageNumber + 1;
       if(activePageNumber >= 5) {        
         RIGHTbtn.disabled = true;
@@ -54,16 +54,16 @@ const onClickRightBtn = (arr8) => {
 
 }
 
-const onClickLeftBtn = (arr8) => {
+const onClickLeftBtn = (arr) => {
   LEFTbtn.addEventListener('click', () => {    
 
     let activePageNumber = +ACTIVEbtn.textContent;    
-    console.log(arr8[activePageNumber - 2]);
+    console.log(arr[activePageNumber - 2]);
     
       LEFTbtn.disabled = false;
       RIGHTbtn.disabled = false;
       ENDbtn.disabled = false;
-      renderPetsList(arr8[activePageNumber - 2]);
+      renderPetsList(arr[activePageNumber - 2]);
       ACTIVEbtn.textContent = activePageNumber - 1;
     
       if((activePageNumber - 1) <= 1) {
@@ -76,23 +76,23 @@ const onClickLeftBtn = (arr8) => {
   
 }
 
-const onClickEndBtn = (arr8) => {
+const onClickEndBtn = (arr) => {
   ENDbtn.addEventListener('mousedown', () => {
-    renderPetsList(arr8[arr8.length - 1]);
-    console.log(arr8[arr8.length - 1]);
+    renderPetsList(arr[arr.length - 1]);
+    console.log(arr[arr.length - 1]);
     RIGHTbtn.disabled = true;
     LEFTbtn.disabled = false;
-    ACTIVEbtn.textContent = arr8.length;
+    ACTIVEbtn.textContent = arr.length;
     ENDbtn.disabled = true;
     STARTbtn.disabled = false;
     console.log('++');
   })
 }
 
-const onClickStartBtn = (arr8) => {
+const onClickStartBtn = (arr) => {
   STARTbtn.addEventListener('mousedown', () => {
-    renderPetsList(arr8[0]);
-    console.log(arr8[0]);
+    renderPetsList(arr[0]);
+    console.log(arr[0]);
     RIGHTbtn.disabled = false;
     LEFTbtn.disabled = true;
     ACTIVEbtn.textContent = 1;
@@ -101,24 +101,20 @@ const onClickStartBtn = (arr8) => {
   })
 }
 
-const controlPagination = async (count) => {
-  const arr = getShuffleArray();
-  console.log(arr);  
-
-  const arr8 = getArray8(arr);
-  console.log(arr8);
-  
+const controlPagination = async (arr, count) => {
+  console.log(arr);
+    
   if (ACTIVEbtn.textContent == 1) {
     console.warn('============');
     LEFTbtn.disabled = true;
     STARTbtn.disabled = true;
   }
-  renderPetsList(arr8[0]);
+  renderPetsList(arr[0]);
 
-  onClickRightBtn(arr8);
-  onClickLeftBtn(arr8);
-  onClickEndBtn(arr8);
-  onClickStartBtn(arr8);
+  onClickRightBtn(arr);
+  onClickLeftBtn(arr);
+  onClickEndBtn(arr);
+  onClickStartBtn(arr);
 
   
 }

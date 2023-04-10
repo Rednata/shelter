@@ -21,13 +21,14 @@
   }
 
    &__list {
-     display: flex;
+    display: flex;
     flex-wrap: wrap;
     padding-left: 0;
     padding-right: 0;
     column-gap: 40px;
     row-gap: 30px;
     justify-content: space-between;
+    margin: 0 auto;
     margin-bottom: 60px;
 
     @media (max-width: 1279px) {
@@ -35,12 +36,17 @@
       max-width: 850px;
       overflow-y: hidden;            
       justify-content: space-evenly;
+      border: 1px solid red;
     }
 
     @include tablet850 {
-      max-width: 580px;
-      margin-bottom: 35px;
+      justify-content: center;
     }
+
+    // @include tablet850 {
+    //   max-width: 580px;
+    //   margin-bottom: 35px;
+    // }
   }
 }
 
