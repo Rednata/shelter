@@ -69,9 +69,11 @@ const webpackConf = {
   },
   entry: {
     index: './src/script/index.js',    
+    pets: './src/script/pets.js',    
+
   },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     sourceMapFilename: "[name].js.map",
   },
   module: {
@@ -87,9 +89,19 @@ if (!dev) {
   });
 }
 
-export const js = () =>
+export const js1 = () =>
   gulp
-    .src('src/script/**/*.js')
+    .src('src/script/index.js')
+    // .pipe(plumber())
+    .pipe(webpackStream(webpackConf, webpack))
+    .pipe(gulpif(!dev, gulp.dest('dist/script')))    
+    .pipe(gulpif(!dev, terser()))
+    .pipe(gulp.dest('dist/script'))
+    .pipe(browserSync.stream());
+
+export const js2 = () =>
+  gulp
+    .src('src/script/pets.js')
     // .pipe(plumber())
     .pipe(webpackStream(webpackConf, webpack))
     .pipe(gulpif(!dev, gulp.dest('dist/script')))    
@@ -109,7 +121,8 @@ export const js = () =>
     })
     gulp.watch('./src/**/*.html', html);
     gulp.watch(prepros ? './src/scss/**/*.scss' : './src/css/**/*.css', style);
-    gulp.watch('./src/script/**/*.js', js);
+    gulp.watch('./src/script/index.js', js1);
+    gulp.watch('./src/script/pets.js', js2);
     gulp.watch(['./src/img/**/*', './src/fonts/**/*'], copy);
   };
 
@@ -121,7 +134,7 @@ export const js = () =>
   };
 
   //  запуск
-  export const base = gulp.parallel(html, style, js, copy);
+  export const base = gulp.parallel(html, style, js1, js2, copy);
 
   export const build = gulp.series(clear, base);
 
