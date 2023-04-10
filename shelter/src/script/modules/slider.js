@@ -64,7 +64,7 @@ const createItem = ({id, name, imageSlider}) => {
 }
 
 const renderList = async (arr, id) => {
-  const url = '../fonts/pets.json';
+  const url = '../../fonts/pets.json';
   const data = await getPetsData(url);  
   
   const cards = arr.map(id => createItem(data[id]));
@@ -78,7 +78,7 @@ const renderList = async (arr, id) => {
 }
 
 const renderTemp = async (arr, id) => {
-  const url = '../fonts/pets.json';
+  const url = '../../fonts/pets.json';
   const data = await getPetsData(url);  
   
   const cards = arr.map(id => createItem(data[id]));
