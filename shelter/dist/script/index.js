@@ -195,7 +195,7 @@ const onClickRightBtn = arr => {
     STARTbtn.disabled = false;
     renderPetsList(arr[activePageNumber]);
     ACTIVEbtn.textContent = activePageNumber + 1;
-    if (activePageNumber >= 5) {
+    if (activePageNumber >= arr.length - 1) {
       RIGHTbtn.disabled = true;
       LEFTbtn.disabled = false;
       ENDbtn.disabled = true;
@@ -274,6 +274,7 @@ const getRandomArray = (count, currentArray) => {
       if (!isIDInArray(currentArray, id)) {
         currentArray.push(id);
       }
+      console.log(currentArray);
     }
     return currentArray;
   } else {
@@ -324,13 +325,14 @@ const renderTemp = async (arr, id) => {
 };
 const getNewCards = (count, arr) => {
   const tempArr = [...arr];
-  const nextArray = getRandomArray(count * 2, tempArr).splice(count, count);
+  const t = getRandomArray(count * 2, tempArr);
+  console.log(t);
+  const nextArray = t.splice(count, count);
   return nextArray;
 };
 const taskLeftBtn = () => {
   const width = document.body.offsetWidth;
   const width1 = list.offsetWidth;
-  console.log(width1);
   if (width > 1200) {
     list.classList.add('move_left990');
   } else if (width <= 650) {
@@ -343,7 +345,6 @@ const taskLeftBtn = () => {
 const taskRightBtn = () => {
   const width = document.body.offsetWidth;
   const width1 = list.offsetWidth;
-  console.log(width1);
   if (width > 1200) {
     list.classList.add('move_right990');
   } else if (width <= 650) {
@@ -367,32 +368,27 @@ const moveSlider = (list, count) => {
     if (e.animationName.slice(0, 4) === 'left') {
       const right = document.querySelector('#right');
       const current = document.querySelector('#current');
-      console.warn('right===', right);
-      console.warn('current===', current);
       current.innerHTML = right.innerHTML;
-      leftBtn.addEventListener('click', taskLeftBtn);
+      leftBtn.addEventListener('click', taskRightBtn);
       const currentArray = getCurrentArray();
       const newArrayID = getNewCards(count, currentArray);
       const newCards = await renderTemp(newArrayID, 'right');
-      console.log(newCards);
       right.innerHTML = '';
       right.append(...newCards);
-    } else {
+    } else if (e.animationName.slice(0, 4) === 'righ') {
       const left = document.querySelector('#left');
       const current = document.querySelector('#current');
       current.innerHTML = left.innerHTML;
-      rightBtn.addEventListener('click', taskRightBtn);
+      rightBtn.addEventListener('click', taskLeftBtn);
       const currentArray = getCurrentArray();
       const newArrayID = getNewCards(count, currentArray);
       const newCards = await renderTemp(newArrayID, 'left');
-      console.log(newCards);
       left.innerHTML = '';
       left.append(...newCards);
     }
   });
 };
 const controlSlider = async count => {
-  console.log('count in controlSLIDER', count);
   const currentArray = getRandomArray(count);
   console.log('currentArray: ', currentArray);
   const leftArray = getNewCards(count, currentArray);
@@ -405,8 +401,8 @@ const controlSlider = async count => {
   const list = document.querySelector('.friends__list');
   list.innerHTML = '';
   list.append(leftCards, currentCards, rightCards);
-  leftBtn.addEventListener('click', taskLeftBtn);
-  rightBtn.addEventListener('click', taskRightBtn);
+  leftBtn.addEventListener('click', taskRightBtn);
+  rightBtn.addEventListener('click', taskLeftBtn);
   moveSlider(list, count);
 };
 
@@ -524,6 +520,22 @@ const getArray8 = arr => {
   }
   return temp;
 };
+const getArray6 = arr => {
+  const temp = [];
+  for (let i = 0; i < 48; i += 6) {
+    const t = arr.slice(i, i + 6);
+    temp.push(t);
+  }
+  return temp;
+};
+const getArray3 = arr => {
+  const temp = [];
+  for (let i = 0; i < 48; i += 3) {
+    const t = arr.slice(i, i + 3);
+    temp.push(t);
+  }
+  return temp;
+};
 
 ;// CONCATENATED MODULE: ./src/script/index.js
 
@@ -535,15 +547,19 @@ const init = () => {
   if (document.location.pathname === '/pets.html') {
     controlBurger();
     // controlPopup();
-    // controlPagination();    
+
     const arrPagination = getShuffleArray();
     const arrPagination8 = getArray8(arrPagination);
-    let cards;
+    const arrPagination6 = getArray6(arrPagination);
+    const arrPagination3 = getArray3(arrPagination);
     const width = document.body.offsetWidth;
     if (width >= 1280) {
-      cards = 8;
-      controlPagination(arrPagination8, cards);
-    } else if (width > 650 && width <= 1200) {} else {}
+      controlPagination(arrPagination8);
+    } else if (width > 650 && width <= 1200) {
+      controlPagination(arrPagination6);
+    } else if (width >= 320 && width <= 650) {
+      controlPagination(arrPagination3);
+    }
   } else {
     controlBurger();
     controlPopup();

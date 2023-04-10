@@ -22,7 +22,8 @@ const getRandomArray = (count, currentArray) => {
       
       if (!isIDInArray(currentArray, id)) {
         currentArray.push(id);
-      }      
+      }   
+      console.log(currentArray);   
     }     
     return currentArray
 
@@ -88,15 +89,16 @@ const renderTemp = async (arr, id) => {
 
 const getNewCards = (count, arr) => {
   const tempArr = [...arr];
-
-  const nextArray = getRandomArray(count * 2, tempArr).splice(count, count) ;
+  const t = getRandomArray(count * 2, tempArr);
+  console.log(t);
+  
+  const nextArray =  t.splice(count, count);
   return nextArray;
 }
 
 const taskLeftBtn = () => {    
   const width = document.body.offsetWidth;
-  const width1 = list.offsetWidth;
-  console.log(width1);
+  const width1 = list.offsetWidth;  
   if (width > 1200) {
     list.classList.add('move_left990')
   } else if (width <= 650) {
@@ -109,8 +111,7 @@ const taskLeftBtn = () => {
 
 const taskRightBtn = () => {    
   const width = document.body.offsetWidth;
-  const width1 = list.offsetWidth;
-  console.log(width1);
+  const width1 = list.offsetWidth;  
   if (width > 1200) {
     list.classList.add('move_right990')
   } else if (width <= 650) {
@@ -138,30 +139,26 @@ const moveSlider = (list, count) => {
     if (e.animationName.slice(0, 4) === 'left') {
       const right = document.querySelector('#right');
       const current = document.querySelector('#current'); 
-      console.warn('right===', right);    
-      console.warn('current===', current);
       current.innerHTML = right.innerHTML;            
-      leftBtn.addEventListener('click', taskLeftBtn)        
+      leftBtn.addEventListener('click',  taskRightBtn)        
             
       const currentArray = getCurrentArray();
       const newArrayID = getNewCards(count, currentArray);      
       const newCards = await renderTemp(newArrayID, 'right');      
-      
-      console.log(newCards);
+            
       right.innerHTML = '';
       right.append(...newCards)      
 
-    } else {
+    } else if (e.animationName.slice(0, 4) === 'righ') {
       const left = document.querySelector('#left');
       const current = document.querySelector('#current');     
       current.innerHTML = left.innerHTML;            
-      rightBtn.addEventListener('click', taskRightBtn)        
+      rightBtn.addEventListener('click', taskLeftBtn)        
       
       const currentArray = getCurrentArray();
       const newArrayID = getNewCards(count, currentArray);      
       const newCards = await renderTemp(newArrayID, 'left');      
-      
-      console.log(newCards);
+            
       left.innerHTML = '';
       left.append(...newCards)
 
@@ -169,8 +166,7 @@ const moveSlider = (list, count) => {
   });
 }
 
-const controlSlider = async (count) => {
-  console.log('count in controlSLIDER', count);
+const controlSlider = async (count) => {  
 
   const currentArray = getRandomArray(count);
   console.log('currentArray: ', currentArray);
@@ -188,8 +184,8 @@ const controlSlider = async (count) => {
       
   list.append(leftCards, currentCards, rightCards);  
     
-  leftBtn.addEventListener('click', taskLeftBtn) ;
-  rightBtn.addEventListener('click', taskRightBtn) 
+  leftBtn.addEventListener('click',  taskRightBtn) ;
+  rightBtn.addEventListener('click', taskLeftBtn) 
 
   moveSlider(list, count);
   

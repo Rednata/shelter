@@ -11,7 +11,7 @@
     margin-bottom: 60px;    
     overflow: hidden;   
     margin-left: auto;
-    margin-right: auto;        
+    margin-right: auto;          
 
     @include desktop1200 {      
       width: 580px;
@@ -46,7 +46,7 @@
     display: flex;
     gap: 90px;
     width: 100%;              
-    flex-wrap: nowrap;         
+    flex-wrap: nowrap;        
 
     @include desktop1200 {
         gap: 40px;
@@ -140,9 +140,6 @@
   }
 }
 
-
-
-
 .move_right990 {
   animation: right990 1s;
 }
@@ -156,7 +153,7 @@
 
 @keyframes left990 {
   from {left: -1080px}
-  to {left: -2070px}
+  to {left: -2160px}
 }
 
 .move_right700 {

@@ -150,4 +150,21 @@ const getArray8 = (arr) => {
   return temp
 }
 
-export {getShuffleArray, getArray8};
+const getArray6 = (arr) => {
+  const temp = [];
+  for (let i = 0; i < 48; i += 6) {
+    const t = (arr.slice(i, i + 6));    
+    temp.push(t);
+  }
+  return temp
+}
+const getArray3 = (arr) => {
+  const temp = [];
+  for (let i = 0; i < 48; i += 3) {
+    const t = (arr.slice(i, i + 3));    
+    temp.push(t);
+  }
+  return temp
+}
+
+export {getShuffleArray, getArray8, getArray6, getArray3};

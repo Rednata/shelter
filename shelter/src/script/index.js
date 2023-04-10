@@ -3,7 +3,7 @@ import { controlBurger } from './modules/burger.js';
 import { controlPagination } from './modules/pagination.js';
 import { controlPopup } from './modules/popup.js';
 import { controlSlider } from './modules/slider.js';
-import { getShuffleArray, getArray8 } from './modules/shuffle.js';
+import { getShuffleArray, getArray8, getArray6, getArray3 } from './modules/shuffle.js';
 
 
 const init = () => {
@@ -11,19 +11,21 @@ const init = () => {
   if (document.location.pathname === '/pets.html') {    
     controlBurger();    
     // controlPopup();
-    // controlPagination();    
+ 
     const arrPagination = getShuffleArray();
     const arrPagination8 = getArray8(arrPagination);
-    let cards;
+    const arrPagination6 = getArray6(arrPagination);
+    const arrPagination3 = getArray3(arrPagination);
+    
 
     const width = document.body.offsetWidth;
     if (width >= 1280) {
-      cards = 8
-      controlPagination(arrPagination8, cards);
+      
+      controlPagination(arrPagination8);
         } else if (width > 650 && width <= 1200) {
-      
-        } else {
-      
+          controlPagination(arrPagination6);
+        } else if (width >= 320 && width <= 650) {
+          controlPagination(arrPagination3)
         }        
     
 

@@ -45,7 +45,7 @@ const onClickRightBtn = (arr) => {
     STARTbtn.disabled = false;
     renderPetsList(arr[activePageNumber]);
     ACTIVEbtn.textContent = activePageNumber + 1;
-      if(activePageNumber >= 5) {        
+      if(activePageNumber >= arr.length - 1) {        
         RIGHTbtn.disabled = true;
         LEFTbtn.disabled = false;
         ENDbtn.disabled = true;
