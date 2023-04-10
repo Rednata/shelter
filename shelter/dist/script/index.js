@@ -143,7 +143,7 @@ const controlPopup = () => {
     target
   }) => {
     const friendName = getFriendName(target);
-    const url = "../fonts/pets.json";
+    const url = "fonts/pets.json";
     const data = await getPetsData(url, friendName);
     const descript = getPetDescript(data, friendName);
     createInnerPopup(descript);

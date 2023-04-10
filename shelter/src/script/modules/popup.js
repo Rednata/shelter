@@ -74,7 +74,7 @@ const controlPopup = () => {
   friends.addEventListener('click', async ({target}) => {
     const friendName = getFriendName(target);
 
-    const url = "../fonts/pets.json";
+    const url = "fonts/pets.json";
     const data = await getPetsData(url, friendName);
 
     const descript = getPetDescript(data, friendName);
