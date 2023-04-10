@@ -295,7 +295,7 @@ const createCard = ({
 };
 const renderPetsList = async arr => {
   PETS.innerHTML = '';
-  const url = '../fonts/pets.json';
+  const url = './fonts/pets.json';
   const response = await getPetsData(url);
   const data = arr.map(elem => createCard(response[elem]));
   PETS.append(...data);
@@ -425,7 +425,7 @@ const createItem = ({
   return card;
 };
 const renderList = async (arr, id) => {
-  const url = '../../fonts/pets.json';
+  const url = './fonts/pets.json';
   const data = await getPetsData(url);
   const cards = arr.map(id => createItem(data[id]));
   const li = document.createElement('li');
@@ -435,7 +435,7 @@ const renderList = async (arr, id) => {
   return li;
 };
 const renderTemp = async (arr, id) => {
-  const url = '../../fonts/pets.json';
+  const url = './fonts/pets.json';
   const data = await getPetsData(url);
   const cards = arr.map(id => createItem(data[id]));
   return cards;
