@@ -26,7 +26,7 @@ const createCard = ({name, imageSlider}) => {
 
 const renderPetsList = async(arr) => {
   PETS.innerHTML = '';
-  const url = './fonts/pets.json';
+  const url = 'fonts/pets.json';
   const response = await getPetsData(url);  
 
   const data = arr.map(elem => createCard(response[elem]));
