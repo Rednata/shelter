@@ -121,8 +121,8 @@ export const js2 = () =>
     })
     gulp.watch('./src/**/*.html', html);
     gulp.watch(prepros ? './src/scss/**/*.scss' : './src/css/**/*.css', style);
-    gulp.watch('./src/script/index.js', js1);
-    gulp.watch('./src/script/pets.js', js2);
+    gulp.watch('./src/script/**/*.js', js1);
+    gulp.watch('./src/script/**/*.js', js2);
     gulp.watch(['./src/img/**/*', './src/fonts/**/*'], copy);
   };
 

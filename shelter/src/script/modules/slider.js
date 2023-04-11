@@ -138,29 +138,48 @@ const moveSlider = (list, count) => {
 
     if (e.animationName.slice(0, 4) === 'left') {
       const right = document.querySelector('#right');
+      const left = document.querySelector('#left');
       const current = document.querySelector('#current'); 
       current.innerHTML = right.innerHTML;            
       leftBtn.addEventListener('click',  taskRightBtn)        
             
       const currentArray = getCurrentArray();
-      const newArrayID = getNewCards(count, currentArray);      
-      const newCards = await renderTemp(newArrayID, 'right');      
+      
+      const newArrayLeftID = getNewCards(count, currentArray);      
+      
+      const newArrayRightID = getNewCards(count, currentArray);      
+
+      const newCardsRight = await renderTemp(newArrayRightID, 'right');      
+      const newCardsLeft = await renderTemp(newArrayLeftID, 'left');      
             
       right.innerHTML = '';
-      right.append(...newCards)      
+      right.append(...newCardsRight)      
+      left.innerHTML = '';
+      left.append(...newCardsLeft)      
 
     } else if (e.animationName.slice(0, 4) === 'righ') {
       const left = document.querySelector('#left');
+
+      const right = document.querySelector('#right');
+      
       const current = document.querySelector('#current');     
       current.innerHTML = left.innerHTML;            
       rightBtn.addEventListener('click', taskLeftBtn)        
       
       const currentArray = getCurrentArray();
-      const newArrayID = getNewCards(count, currentArray);      
-      const newCards = await renderTemp(newArrayID, 'left');      
+      const newArrayLeftID = getNewCards(count, currentArray);      
+      
+      const newArrayRightID = getNewCards(count, currentArray); 
+
+      // const newArrayID = getNewCards(count, currentArray);      
+      const newCardsLeft = await renderTemp(newArrayLeftID, 'left');    
+      const newCardsRight = await renderTemp(newArrayRightID, 'right');    
+      
             
       left.innerHTML = '';
-      left.append(...newCards)
+      left.append(...newCardsRight)
+      right.innerHTML = '';
+      right.append(...newCardsLeft)
 
     }
   });
@@ -168,12 +187,9 @@ const moveSlider = (list, count) => {
 
 const controlSlider = async (count) => {  
 
-  const currentArray = getRandomArray(count);
-  // console.log('currentArray: ', currentArray);
-  const leftArray = getNewCards(count, currentArray);
-  // console.log('leftArray: ', leftArray);
-  const rightArray = getNewCards(count, currentArray);
-  // console.log('rightArray: ', rightArray);
+  const currentArray = getRandomArray(count);  
+  const leftArray = getNewCards(count, currentArray);  
+  const rightArray = getNewCards(count, currentArray);  
 
   const currentCards = await renderList(currentArray, 'current');
   const leftCards = await  renderList(leftArray, 'left');
